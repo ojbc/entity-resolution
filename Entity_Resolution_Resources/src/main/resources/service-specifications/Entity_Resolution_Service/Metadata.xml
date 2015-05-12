@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gra:ServiceMetadata xsi:schemaLocation="http://it.ojp.gov/gsp/services/1.0.0 Metadata.xsd" xmlns:gra="http://it.ojp.gov/gsp/services/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<gra:ServiceIdentification>
+		<gra:ServiceFullNameText>Entity Resolution Service</gra:ServiceFullNameText>
+		<gra:ServiceURI>http://it.ojp.gov/gsp/services/1.0.0/EntityResolutionService</gra:ServiceURI>
+		<gra:ServiceNameAbbreviationText>ERS</gra:ServiceNameAbbreviationText>
+	</gra:ServiceIdentification>
+	<gra:ServiceDescription>
+		<gra:ServicePurposeText>The purpose of the Entity Resolution Service (ERS) is to provide a means to analyze a set of entity records, through matching and merging logic, to determine whether the records represent the same real-world entity.</gra:ServicePurposeText>
+		<gra:ServiceScopeDescriptionText>Performing a ‘match’ or ‘match/merge’ function on a set of records, representing any entity.</gra:ServiceScopeDescriptionText>
+		<gra:ServiceDescriptionSummaryText>Determines a “match score” for each pair-wise record attribute provided.Create a merged “entity” record based on a pair-wise “match threshold” analysis.  
+</gra:ServiceDescriptionSummaryText>
+		<gra:ServiceDescriptionText>The Entity Resolution Service (ERS) resolves and correlates entities across multiple data sources.  Law enforcement support systems (e.g., federated query or link analysis applications) will use this service whenever they need to determine (at some probability) whether two entities are the same based on similar attributes within a record.  Matching is done based upon “string distance”, or the similarity between the values of strings in the records being compared.  There are several algorithms available to perform string distance computation.  Particular implementations of this service could use any or all of these, or invent new ones.  The service’s information model provides a structure to configure the behavior of the service; this structure allows each message to define what string distance algorithm to use for each attribute in the input data, and the match threshold for each attribute.  The definition of the attribute is expected to provide an XPath expression that resolves the input message to a single string value for each entity.  It is this value, for each entity, that is compared (in whatever way appropriate for the implementation) with the same attribute in all other entities.</gra:ServiceDescriptionText>
+		<gra:ServiceDescriptionKeywordText>Entity Resolution</gra:ServiceDescriptionKeywordText>
+		<gra:ServiceDescriptionKeywordText>Match</gra:ServiceDescriptionKeywordText>
+		<gra:ServiceDescriptionKeywordText>Merge</gra:ServiceDescriptionKeywordText>
+		<gra:ServiceCapabilities>
+			<gra:CapabilityDescriptionText>Perform a ‘match’ functions on a set of entity records and determine the ‘match score’.</gra:CapabilityDescriptionText>
+			<gra:CapabilityDescriptionText>Perform a ‘merge’ function, based on a pre-defined “match threshold”, on a set of entity records and consolidating the results as a set of merged records for each real-world entity.</gra:CapabilityDescriptionText>
+		</gra:ServiceCapabilities>
+		<gra:ServiceRealWorldEffects>
+			<gra:RealWorldEffectDescriptionText>Assists investigators in building a complete entity profile based on entity records from multiple justice systems.</gra:RealWorldEffectDescriptionText>
+			<gra:RealWorldEffectDescriptionText>Provides investigators with additional entity information that could lead to criminal apprehension.</gra:RealWorldEffectDescriptionText>
+		</gra:ServiceRealWorldEffects>
+		<gra:SecurityClassificationText>The intermediary capability of the ERS is based on the premise that the ERS would be implementated in the following scenarios: (1) in an Intermediary container between a Search Results Aggregation Service and a Merge Notification Service, (2) in an Intermediary container between a Query Request Service and a Merge Notification service [see section 5.2.2, Figures 3,4].  Note that in both scenarios all services would reside in the same intermediary environment/container.  In both scenarios, the ERS would receive a message from a service and pass a message to the Merge Notification Service all within the same intermediary container.  The Entity Resolution Service would not receive or send any message outside the intermediary.   Based on this premise, the ERS does not provide direct access to any information from outside the Intermediary, nor does the underlying capability store any information.  Therefore, in the above scenarios the ERS has no security classification or security requirements.  
+
+In addition, implementation of the ERS could occur in a scenario where the service receives a message and/or sends a message outside it’s container environment.  In this scenario, security requirements may apply.
+
+Therefore, the ERS could be classified as ‘unsecured’ or ‘secured’ depending on the implementation scenario.</gra:SecurityClassificationText>
+		<gra:IEPDReferences>
+			<gra:IEPDReference>
+				<gra:IEPDName>EntityResolutionRequest-IEPD</gra:IEPDName>
+				<gra:IEPDURL>String</gra:IEPDURL>
+			</gra:IEPDReference>
+		</gra:IEPDReferences>
+	</gra:ServiceDescription>
+	<gra:VersionInformation>
+		<gra:MajorVersion>1</gra:MajorVersion>
+		<gra:MinorVersion>0</gra:MinorVersion>
+		<gra:RevisionVersion>0</gra:RevisionVersion>
+		<gra:CreationDate>2013-10-21</gra:CreationDate>
+		<gra:LifecycleStatus>Operational/Production</gra:LifecycleStatus>
+	</gra:VersionInformation>
+	<gra:RelatedOrganizationInformation>
+		<gra:Organization>
+			<gra:OrganizationName>SEARCH</gra:OrganizationName>
+			<gra:OrganizationAcronym/>
+			<gra:OrganizationFullAddressText/>
+			<gra:OrganizationWebSiteURL>www.search.org</gra:OrganizationWebSiteURL>
+			<gra:OrganizationRoleDescriptionText>Creator</gra:OrganizationRoleDescriptionText>
+			<gra:OrganizationRoleDetailedDescriptionText/>
+			<gra:OrganizationPointOfContact>
+				<gra:ContactPersonName>Jim Douglas</gra:ContactPersonName>
+				<gra:ContactPersonEmailID>jdouglas@search.org</gra:ContactPersonEmailID>
+				<gra:ContactPersonPhoneNumberID/>
+			</gra:OrganizationPointOfContact>
+		</gra:Organization>
+	</gra:RelatedOrganizationInformation>
+	<gra:BusinessContext>
+		<gra:DomainDescription>
+			<gra:DomainNameText>Law Enforcment</gra:DomainNameText>
+		</gra:DomainDescription>
+		<gra:Classifications>
+			<gra:Classification/>
+		</gra:Classifications>
+		<gra:ExchangePartnerTypes>
+			<gra:ExchangePartnerTypeDescriptionText>Law Enforcement;Courts</gra:ExchangePartnerTypeDescriptionText>
+		</gra:ExchangePartnerTypes>
+		<gra:Endorsements>
+			<gra:Endorser/>
+		</gra:Endorsements>
+		<gra:Sponsors>
+			<gra:Sponsor>National Institute of Justice</gra:Sponsor>
+		</gra:Sponsors>
+	</gra:BusinessContext>
+	<gra:ServiceInterface>
+		<gra:URIDetails>
+			<gra:URIDetail>
+				<gra:URIAddress>http://it.ojp.gov/gsp/services/1.0.0/EntityResolutionService/ServiceInterfaceName</gra:URIAddress>
+				<gra:URIDescription>String</gra:URIDescription>
+			</gra:URIDetail>
+		</gra:URIDetails>
+		<gra:ServiceActions>
+			<gra:ServiceAction>
+				<gra:ActionName>Submit-Entity-Match</gra:ActionName>
+				<gra:ActionPurpose>A request that the match function be performed on a set of record attributes</gra:ActionPurpose>
+				<gra:MessageExchangePattern>Fire-Forget</gra:MessageExchangePattern>
+			</gra:ServiceAction>
+			<gra:ServiceAction>
+				<gra:ActionName>Submit-Entity-Merge</gra:ActionName>
+				<gra:ActionPurpose>A request that both a match and merge function be performed on a set of record attributes</gra:ActionPurpose>
+				<gra:MessageExchangePattern>Fire-Forget</gra:MessageExchangePattern>
+			</gra:ServiceAction>
+		</gra:ServiceActions>
+		<gra:ServiceInteractionProfiles>
+			<gra:ServiceInteractionProfile>
+				<gra:SIPName>GRA SIP_RSWS</gra:SIPName>
+				<gra:SIPVersion>1.1</gra:SIPVersion>
+			</gra:ServiceInteractionProfile>
+		</gra:ServiceInteractionProfiles>
+		<gra:SecurityImplementedIndicator>false</gra:SecurityImplementedIndicator>
+		<gra:SecurityDescriptionText/>
+	</gra:ServiceInterface>
+	<gra:ServiceLevelAgreements>
+		<gra:ServicePolicyAndContracts>
+			<gra:ApplicablePoliciesIndicator>false</gra:ApplicablePoliciesIndicator>
+			<gra:ApplicablePolicies>
+				<gra:PolicyText/>
+			</gra:ApplicablePolicies>
+			<gra:ApplicableContractsIndicator>false</gra:ApplicableContractsIndicator>
+			<gra:ApplicableContracts>
+				<gra:Contract>
+					<gra:AgreementDescriptionText/>
+				</gra:Contract>
+			</gra:ApplicableContracts>
+			<gra:ApplicableAgreementsIndicator>false</gra:ApplicableAgreementsIndicator>
+			<gra:ApplicableAgreements>
+				<gra:Agreement>
+					<gra:AgreementDescriptionText/>
+				</gra:Agreement>
+			</gra:ApplicableAgreements>
+			<gra:ApplicableUmbrellaAgreementsIndicator>false</gra:ApplicableUmbrellaAgreementsIndicator>
+			<gra:ApplicableUmbrellaAgreements>
+				<gra:UmbrellaAgreement>
+					<gra:AgreementDescriptionText/>
+				</gra:UmbrellaAgreement>
+			</gra:ApplicableUmbrellaAgreements>
+		</gra:ServicePolicyAndContracts>
+		<gra:PerformanceMetrics>
+			<gra:ServiceResponseTime>P1Y2M3DT10H30M0S</gra:ServiceResponseTime>
+		</gra:PerformanceMetrics>
+		<gra:ServiceUsageDetails>
+			<gra:ApprovalRequiredIndicator>false</gra:ApprovalRequiredIndicator>
+			<gra:LicensingRequiredIndicator>false</gra:LicensingRequiredIndicator>
+			<gra:LicensingAgreement>
+				<gra:AgreementDescriptionText></gra:AgreementDescriptionText>
+			</gra:LicensingAgreement>
+		</gra:ServiceUsageDetails>
+	</gra:ServiceLevelAgreements>
+</gra:ServiceMetadata>

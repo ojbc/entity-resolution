@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gra:ServiceMetadata xsi:schemaLocation="http://it.ojp.gov/gsp/services/1.0.0 Metadata.xsd" xmlns:gra="http://it.ojp.gov/gsp/services/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<gra:ServiceIdentification>
+		<gra:ServiceFullNameText>Merge Notification Service</gra:ServiceFullNameText>
+		<gra:ServiceURI>http://it.ojp.gov/gsp/services/1.0.0/MergeNotificationService</gra:ServiceURI>
+		<gra:ServiceNameAbbreviationText>MNS</gra:ServiceNameAbbreviationText>
+	</gra:ServiceIdentification>
+	<gra:ServiceDescription>
+		<gra:ServicePurposeText>The purpose of the Merge Notification Service is to communicate information about multiple individual system records that, based on certain criteria, represent the same real-world entity.</gra:ServicePurposeText>
+		<gra:ServiceScopeDescriptionText>The scope of the Merge Notification Service includes informing interested parties of multiple individual system records that, based on certain criteria, represent the same real-world entity.</gra:ServiceScopeDescriptionText>
+		<gra:ServiceDescriptionSummaryText>This service will provide information about individual system records that, based on certain criteria, represent the same real-world entity.</gra:ServiceDescriptionSummaryText>
+		<gra:ServiceDescriptionText>This service is able to provide information to interested parties about individual system records that probably represent the same real world.  This type of information can facilitate investigations by providing a sense of probability that otherwise independent pieces of information are actually about the same entity.  Law enforcement support systems (e.g., federated query or link analysis applications) will use this service whenever they need to determine (at some probability) whether two entities are the same based on common attributes within a record.</gra:ServiceDescriptionText>
+		<gra:ServiceDescriptionKeywordText>Entity Resolution</gra:ServiceDescriptionKeywordText>
+		<gra:ServiceDescriptionKeywordText>Merge</gra:ServiceDescriptionKeywordText>
+		<gra:ServiceCapabilities>
+			<gra:CapabilityDescriptionText>This service has the ability to notify of multiple systems records that likely represent the same real-world entity, based on pre-determined criteria.</gra:CapabilityDescriptionText>
+		</gra:ServiceCapabilities>
+		<gra:ServiceRealWorldEffects>
+			<gra:RealWorldEffectDescriptionText>This service assists investigators in building a complete entity profile based on entity records from multiple justice systems.</gra:RealWorldEffectDescriptionText>
+		</gra:ServiceRealWorldEffects>
+		<gra:SecurityClassificationText>The highest level of security classification for the information exchanged by this service is Sensitive but Unclassified (SBU).  As a result the service can be assigned a security classification of SBU.</gra:SecurityClassificationText>
+		<gra:IEPDReferences>
+			<gra:IEPDReference>
+				<gra:IEPDName>EntityMergeResultMessage-IEPD</gra:IEPDName>
+				<gra:IEPDURL/>
+			</gra:IEPDReference>
+		</gra:IEPDReferences>
+	</gra:ServiceDescription>
+	<gra:VersionInformation>
+		<gra:MajorVersion>1</gra:MajorVersion>
+		<gra:MinorVersion>0</gra:MinorVersion>
+		<gra:RevisionVersion>0</gra:RevisionVersion>
+		<gra:CreationDate>2013-10-21</gra:CreationDate>
+		<gra:LifecycleStatus>Operational/Production</gra:LifecycleStatus>
+	</gra:VersionInformation>
+	<gra:RelatedOrganizationInformation>
+		<gra:Organization>
+			<gra:OrganizationName>SEARCH</gra:OrganizationName>
+			<gra:OrganizationAcronym/>
+			<gra:OrganizationFullAddressText/>
+			<gra:OrganizationWebSiteURL>www.search.org</gra:OrganizationWebSiteURL>
+			<gra:OrganizationRoleDescriptionText>Creator</gra:OrganizationRoleDescriptionText>
+			<gra:OrganizationRoleDetailedDescriptionText/>
+			<gra:OrganizationPointOfContact>
+				<gra:ContactPersonName>Jim Douglas</gra:ContactPersonName>
+				<gra:ContactPersonEmailID>jdouglas@search.org</gra:ContactPersonEmailID>
+				<gra:ContactPersonPhoneNumberID/>
+			</gra:OrganizationPointOfContact>
+		</gra:Organization>
+	</gra:RelatedOrganizationInformation>
+	<gra:BusinessContext>
+		<gra:DomainDescription>
+			<gra:DomainNameText>Law Enforcment</gra:DomainNameText>
+		</gra:DomainDescription>
+		<gra:Classifications>
+			<gra:Classification/>
+		</gra:Classifications>
+		<gra:ExchangePartnerTypes>
+			<gra:ExchangePartnerTypeDescriptionText>Law Enforcement;Courts</gra:ExchangePartnerTypeDescriptionText>
+		</gra:ExchangePartnerTypes>
+		<gra:Endorsements>
+			<gra:Endorser/>
+		</gra:Endorsements>
+		<gra:Sponsors>
+			<gra:Sponsor>National Institute of Justice</gra:Sponsor>
+		</gra:Sponsors>
+	</gra:BusinessContext>
+	<gra:ServiceInterface>
+		<gra:URIDetails>
+			<gra:URIDetail>
+				<gra:URIAddress>http://it.ojp.gov/gsp/services/1.0.0/MergeNotificationService/ServiceInterfaceName</gra:URIAddress>
+				<gra:URIDescription>String</gra:URIDescription>
+			</gra:URIDetail>
+		</gra:URIDetails>
+		<gra:ServiceActions>
+			<gra:ServiceAction>
+				<gra:ActionName>NotifyofMergedRecords</gra:ActionName>
+				<gra:ActionPurpose>A service consumer will invoke this action in order to notify of merged records resulting from an entity resolution process</gra:ActionPurpose>
+				<gra:MessageExchangePattern>Fire-Forget</gra:MessageExchangePattern>
+			</gra:ServiceAction>
+		</gra:ServiceActions>
+		<gra:ServiceInteractionProfiles>
+			<gra:ServiceInteractionProfile>
+				<gra:SIPName>GRA SIP_RSWS</gra:SIPName>
+				<gra:SIPVersion>1.1</gra:SIPVersion>
+			</gra:ServiceInteractionProfile>
+		</gra:ServiceInteractionProfiles>
+		<gra:SecurityImplementedIndicator>true</gra:SecurityImplementedIndicator>
+		<gra:SecurityDescriptionText>GFIPM</gra:SecurityDescriptionText>
+	</gra:ServiceInterface>
+	<gra:ServiceLevelAgreements>
+		<gra:ServicePolicyAndContracts>
+			<gra:ApplicablePoliciesIndicator>false</gra:ApplicablePoliciesIndicator>
+			<gra:ApplicablePolicies>
+				<gra:PolicyText/>
+			</gra:ApplicablePolicies>
+			<gra:ApplicableContractsIndicator>false</gra:ApplicableContractsIndicator>
+			<gra:ApplicableContracts>
+				<gra:Contract>
+					<gra:AgreementDescriptionText/>
+				</gra:Contract>
+			</gra:ApplicableContracts>
+			<gra:ApplicableAgreementsIndicator>false</gra:ApplicableAgreementsIndicator>
+			<gra:ApplicableAgreements>
+				<gra:Agreement>
+					<gra:AgreementDescriptionText/>
+				</gra:Agreement>
+			</gra:ApplicableAgreements>
+			<gra:ApplicableUmbrellaAgreementsIndicator>false</gra:ApplicableUmbrellaAgreementsIndicator>
+			<gra:ApplicableUmbrellaAgreements>
+				<gra:UmbrellaAgreement>
+					<gra:AgreementDescriptionText/>
+				</gra:UmbrellaAgreement>
+			</gra:ApplicableUmbrellaAgreements>
+		</gra:ServicePolicyAndContracts>
+		<gra:PerformanceMetrics>
+			<gra:ServiceResponseTime>P1Y2M3DT10H30M0S</gra:ServiceResponseTime>
+		</gra:PerformanceMetrics>
+		<gra:ServiceUsageDetails>
+			<gra:ApprovalRequiredIndicator>false</gra:ApprovalRequiredIndicator>
+			<gra:LicensingRequiredIndicator>false</gra:LicensingRequiredIndicator>
+			<gra:LicensingAgreement>
+				<gra:AgreementDescriptionText/>
+			</gra:LicensingAgreement>
+		</gra:ServiceUsageDetails>
+	</gra:ServiceLevelAgreements>
+</gra:ServiceMetadata>

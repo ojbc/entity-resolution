@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:iad="http://ojbc.org/IEPD/Extensions/InformationAccessDenial/1.0" xmlns:ext="http://nij.gov/IEPD/Extensions/EntityMergeResultMessageExtensions/1.0" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:srm="http://ojbc.org/IEPD/Extensions/SearchResultsMetadata/1.0" targetNamespace="http://nij.gov/IEPD/Extensions/EntityMergeResultMessageExtensions/1.0">
+	<xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="NIEM_2.1/structures/2.0/structures.xsd"/>
+	<xsd:import namespace="http://ojbc.org/IEPD/Extensions/InformationAccessDenial/1.0" schemaLocation="access-denial.xsd"/>
+	<xsd:import namespace="http://ojbc.org/IEPD/Extensions/SearchResultsMetadata/1.0" schemaLocation="search-results-metadata.xsd"/>
+	<xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="NIEM_2.1/appinfo/2.0/appinfo.xsd"/>
+	<xsd:complexType name="EntityContainerType">
+		<xsd:annotation>
+			<xsd:documentation>A data type for a collection of all entities that
+				were analyzed
+				for consideration of merging.</xsd:documentation>
+			<xsd:appinfo>
+				<i:ConformantIndicator>false</i:ConformantIndicator>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="s:ComplexObjectType">
+				<xsd:sequence>
+					<xsd:element ref="ext:Entity" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Entity" type="ext:EntityType">
+		<xsd:annotation>
+			<xsd:documentation>An object with real-world existence such as a
+				person, location, or an item.  </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="EntityType">
+		<xsd:annotation>
+			<xsd:documentation>A data type for an object with real-world
+				existence such as a person, location, or an item.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="s:ComplexObjectType">
+				<xsd:sequence>
+					<xsd:any processContents="lax"/>
+				</xsd:sequence>
+			</xsd:extension>
+			<!-- Hand edited (added by SC 6/21/11) -->
+			<!-- end hand-edit -->
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="MergedRecordsType">
+		<xsd:annotation>
+			<xsd:documentation>A data type for a collection of merged records,
+				based on entities
+				contained in the Entity Container.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="s:ComplexObjectType">
+				<xsd:sequence>
+					<xsd:element ref="ext:MergedRecord" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="MergedRecord" type="ext:MergedRecordType">
+		<xsd:annotation>
+			<xsd:documentation>A group entities that have met matching criteria
+				to justify a merge.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="MergedRecordType">
+		<xsd:annotation>
+			<xsd:documentation>A data type for a group entities that have met
+				matching criteria to justify a merge. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="s:ComplexObjectType">
+				<xsd:sequence>
+					<xsd:element ref="ext:OriginalRecordReference" maxOccurs="unbounded"/>
+					<xsd:element ref="ext:MergeQuality" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="OriginalRecordReference" type="s:ReferenceType">
+		<xsd:annotation>
+			<xsd:documentation>A reference to the original entity indicating that
+				the reference entity is part of the merge.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MergeQuality" type="ext:MergeQualityType">
+		<xsd:annotation>
+			<xsd:documentation>A set of details that provide information above a
+				given merge.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="MergeQualityType">
+		<xsd:annotation>
+			<xsd:documentation>A data type for details that provide information
+				above a given merge.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="s:ComplexObjectType">
+				<xsd:sequence>
+					<xsd:element ref="ext:MergeQualityCategory" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="MergeQualityCategory" abstract="true">
+		<xsd:annotation>
+			<xsd:documentation>The type of information about an entity attribute that
+				serves as matching criteria for the merge.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="StringDistanceStatistics" type="ext:StringDistanceStatisticsType" substitutionGroup="ext:MergeQualityCategory">
+		<xsd:annotation>
+			<xsd:documentation>A String Distance Statistics example of entity attribute that
+				serves as matching criteria for the merge.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="StringDistanceStatisticsType">
+		<xsd:annotation>
+			<xsd:documentation>A data type for information about an entity attribute that
+				serves as matching criteria for the merge.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="s:ComplexObjectType">
+				<xsd:sequence>
+					<xsd:element ref="ext:AttributeXPath"/>
+					<xsd:element ref="ext:StringDistanceMeanInRecord"/>
+					<xsd:element ref="ext:StringDistanceAverageInRecord" minOccurs="0"/>
+					<xsd:element ref="ext:StringDistanceStandardDeviationInRecord" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AttributeXPath" type="xsd:string">
+		<xsd:annotation>
+			<xsd:documentation>An XPath representing the XML node that is to be
+				compared across entities to determine string distance.  Namespace prefixes used in the XPath should be standardized in the root element of an instance of this message so the XPaths are resolvable.  
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="StringDistanceMeanInRecord" type="xsd:double">
+		<xsd:annotation>
+			<xsd:documentation>The mean value of all string distances calculated for the specific attribute for a given set of entities. </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="StringDistanceAverageInRecord" type="xsd:double">
+		<xsd:annotation>
+			<xsd:documentation>The average string distance for this attribute in the set of entities.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="StringDistanceStandardDeviationInRecord" type="xsd:double">
+		<xsd:annotation>
+			<xsd:documentation>The standard deviation of this attribute in the given set of entities.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="SearchResultsMetadataCollectionType">
+		<xsd:complexContent>
+			<xsd:extension base="s:ComplexObjectType">
+				<xsd:sequence>
+					<xsd:element ref="srm:SearchResultsMetadata" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ca:Catalog xmlns:ca="http://niem.gov/niem/iem-catalog/1.0" xmlns:s="http://niem.gov/niem/structures/2.0" ca:descriptionText="" s:id="_h-d1EKK4EeCEpZXB8B1jUA" ca:iemName="EntityResolutionRequest" ca:iemURI="http://local.gov/SCP/EntityResolutionRequest/1.0" ca:iemVersionID="1.0">
+  <ca:File ca:descriptionText="History of changes to this IEPD" s:id="_h-3dsKK4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/application/text" ca:purposeURI="http://niem.gov/niem/resources/purposes/1#change-log" ca:relativePathName="./changelog.txt"/>
+  <ca:File ca:descriptionText="Manifest of IEPD contents (this file)" s:id="_h-4EwKK4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/text/xml" ca:purposeURI="http://niem.gov/niem/resources/purposes/1#catalog" ca:relativePathName="./catalog.xml"/>
+  <ca:File ca:descriptionText="Mapping Spreadsheet" s:id="_h-4EwaK4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/application/vnd.ms-excel" ca:purposeURI="http://www.rddl.org/purposes#reference" ca:relativePathName="./mapping.xls"/>
+  <ca:FileSet ca:descriptionText="Subset schema set" s:id="_h-4r0KK4EeCEpZXB8B1jUA" ca:natureURI="http://niem.gov/niem/resources/natures/1#directory" ca:purposeURI="http://niem.gov/niem/resources/purposes/1#subset" ca:relativePathName="./xsd/NIEM_2.1">
+    <ca:File ca:descriptionText="Wantlist for schema subset (wantlist.xsd)" s:id="_h-4r0aK4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/text/xml" ca:purposeURI="http://niem.gov/niem/resources/purposes#want-list" ca:relativePathName="./wantlist-NIEM_2.1.xml"/>
+  </ca:FileSet>
+  <ca:File ca:descriptionText="Extension schema" s:id="_h-4r0qK4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/text/xml" ca:purposeURI="http://niem.gov/niem/resources/purposes/1#extension-schema" ca:relativePathName="./xsd/EntityResolutionExtensions.xsd"/>
+  <ca:File ca:descriptionText="Extension schema" s:id="_h-4r06K4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/text/xml" ca:purposeURI="http://niem.gov/niem/resources/purposes/1#extension-schema" ca:relativePathName="./xsd/MatchAlgorithmCodes.xsd"/>
+  <ca:File ca:descriptionText="Exchange schema" s:id="_h-4r1KK4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/text/xml" ca:purposeURI="http://niem.gov/niem/resources/purposes/1#exchange-schema" ca:relativePathName="./xsd/EntityMatchRequestMessage.xsd"/>
+  <ca:File ca:descriptionText="Exchange schema" s:id="_h-4r1aK4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/text/xml" ca:purposeURI="http://niem.gov/niem/resources/purposes/1#exchange-schema" ca:relativePathName="./xsd/EntityMergeRequestMessage.xsd"/>
+  <ca:File ca:descriptionText="Sample instance" s:id="_h-4r1qK4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/text/xml" ca:purposeURI="http://niem.gov/niem/resources/purposes/1#sample-instance" ca:relativePathName="./xml/EntityMatchRequestMessage.xml"/>
+  <ca:File ca:descriptionText="Sample instance" s:id="_h-4r16K4EeCEpZXB8B1jUA" ca:natureURI="http://www.iana.org/assignments/media-types/text/xml" ca:purposeURI="http://niem.gov/niem/resources/purposes/1#sample-instance" ca:relativePathName="./xml/EntityMergeRequestMessage.xml"/>
+  <ca:Metadata>
+    <ca:SecurityMarkingText></ca:SecurityMarkingText>
+    <ca:CreationDate>2010-06-22</ca:CreationDate>
+    <ca:StatusText></ca:StatusText>
+    <ca:DomainText></ca:DomainText>
+    <ca:AuthoritativeSource>
+      <ca:Name></ca:Name>
+      <ca:POC>
+        <ca:POCName></ca:POCName>
+        <ca:POCEmail></ca:POCEmail>
+        <ca:POCTelephone></ca:POCTelephone>
+      </ca:POC>
+    </ca:AuthoritativeSource>
+  </ca:Metadata>
+</ca:Catalog>

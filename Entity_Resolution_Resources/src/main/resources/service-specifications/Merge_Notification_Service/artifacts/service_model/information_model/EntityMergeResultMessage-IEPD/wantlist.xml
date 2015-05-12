@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<w:WantList w:release="2.1" w:product="NIEM" w:nillableDefault="true"
+  xmlns:intel="http://niem.gov/niem/domains/intelligence/2.1"
+  xmlns:w="http://niem.gov/niem/wantlist/2.1" xmlns:nc="http://niem.gov/niem/niem-core/2.0">
+  <w:Element w:name="intel:SystemName" w:isReference="false" w:nillable="true"/>
+  <w:Type w:name="nc:TextType" w:isRequested="true"/>
+</w:WantList>

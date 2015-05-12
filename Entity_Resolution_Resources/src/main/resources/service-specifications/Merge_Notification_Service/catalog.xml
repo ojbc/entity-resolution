@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<catalog>
+    - <!--   Catalog Files Section   -->
+    <catalog href="catalog.html">Catalog</catalog>
+    <metadata href="metadata.xml">Metadata</metadata>
+    - <!--   Service Description Files Section    -->
+    <service-description href="artifacts/MNS_SDD_v_1.0.0.doc">Service Description Document</service-description>
+    - <!--   Service Interface Files Section    -->
+    <service-interface-description href="artifacts/MNS_SIDD_v_1.0.0.doc">Service Interface Description Document</service-interface-description>
+    - <!--   Schema and Sample Files Section - Web Services    -->
+    <wsdl-schema href="schemas/SIP_RSWS_1.1/Merge_Notification_Service.wsdl">Schema</wsdl-schema>
+     <wsdl-schema href="schemas/SIP_RSWS_1.1/GFIPMSystemToSystem.wsdl">Schema</wsdl-schema>
+    <!--wsdl-schema href="schemas\SIP_RSWS_1.1\Policy.wsdl">Service Policy Schema</wsdl-schema-->
+    - <!--   Schema and Sample Files Section - Information Model    -->
+    <iepd-catalog href="artifacts/service model/information model/EntityMergeResultMessage-IEPD">IEPD Folder</iepd-catalog>
+    - <!--   Other Documents Section    -->
+</catalog>

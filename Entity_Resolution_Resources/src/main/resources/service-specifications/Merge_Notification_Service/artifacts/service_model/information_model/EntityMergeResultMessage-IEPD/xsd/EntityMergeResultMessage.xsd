@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:i="http://niem.gov/niem/appinfo/2.0" xmlns:ext="http://nij.gov/IEPD/Extensions/EntityMergeResultMessageExtensions/1.0" xmlns:exc="http://nij.gov/IEPD/Exchange/EntityMergeResultMessage/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nij.gov/IEPD/Exchange/EntityMergeResultMessage/1.0">
+	<xsd:import namespace="http://nij.gov/IEPD/Extensions/EntityMergeResultMessageExtensions/1.0" schemaLocation="EntityMergeResultMessageExtensions.xsd"/>
+	<xsd:import namespace="http://niem.gov/niem/structures/2.0" schemaLocation="NIEM_2.1/structures/2.0/structures.xsd"/>
+	<xsd:import namespace="http://niem.gov/niem/appinfo/2.0" schemaLocation="NIEM_2.1/appinfo/2.0/appinfo.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>This message shows a set of entities and provides metadata about entities that were "merged" because they met certain matching criteria.</xsd:documentation>
+		<xsd:appinfo>
+			<i:ConformantIndicator>false</i:ConformantIndicator>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:complexType name="EntityMergeResultMessageType">
+		<xsd:complexContent>
+			<xsd:extension base="s:ComplexObjectType">
+				<xsd:sequence>
+					<xsd:element ref="exc:EntityContainer" minOccurs="0"/>
+					<xsd:element ref="exc:MergedRecords" minOccurs="0"/>
+					<xsd:element ref="exc:SearchResultsMetadataCollection" minOccurs="0"/>
+					<xsd:element ref="exc:EntityResolutionPerformedIndicator" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="EntityContainer" type="ext:EntityContainerType">
+		<xsd:annotation>
+			<xsd:documentation>A collection of all entities that were analyzed for consideration of merging.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MergedRecords" type="ext:MergedRecordsType">
+		<xsd:annotation>
+			<xsd:documentation>A collection of merged records, based on entities contained in the Entity Container.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EntityMergeResultMessage" type="exc:EntityMergeResultMessageType">
+		<xsd:annotation>
+			<xsd:documentation>The root message element that conveys a collection of entities and merge information for those entities.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SearchResultsMetadataCollection" type="ext:SearchResultsMetadataCollectionType"/>
+	<xsd:element name="EntityResolutionPerformedIndicator" type="xsd:boolean">
+		<xsd:annotation>
+			<xsd:documentation>True when the contents of this message are a result of entity resolution, false when entity resolution was not performed on the contents of this message.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

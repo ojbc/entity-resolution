@@ -1,0 +1,26 @@
+== Changelog CPIE SSP 1.0.0 ==
+
+=== english ===
+
+==== new features ====
+
+* <new feature #1>
+* <new feature #2>
+...
+
+==== bug fixes ====
+
+* <ticketID1> [http://it.ojp.gov/globaljra/tickets/report/<ticketID1> <ticket description (copy from your tracking)>]
+* <ticketID2> [http://it.ojp.gov/globaljra/tickets/report/<ticketID2> <ticket description (copy from your tracking)>]
+...
+
+==== ebXML changes ====
+
+<module name>
+
+<change description>
+Initial Version 12/11/2011
+
+<the actual change>
+Initial Version 12/11/2011
+

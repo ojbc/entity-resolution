@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exc:EntityMergeResultMessage
+	xmlns:ext="http://nij.gov/IEPD/Extensions/EntityMergeResultMessageExtensions/1.0"
+	xmlns:exc="http://nij.gov/IEPD/Exchange/EntityMergeResultMessage/1.0"
+	xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://nij.gov/IEPD/Exchange/EntityMergeResultMessage/1.0 ../xsd/EntityMergeResultMessage.xsd">
+	<exc:EntityContainer>
+		<ext:Entity>
+			<ext1:VehicleSearchResult s:id="VSR001"
+				xmlns:ext1="http://ojbc.org/IEPD/Extensions/VehicleSearchResults/1.0"
+				xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:intel="http://niem.gov/niem/domains/intelligence/2.1">
+				<ext1:Vehicle>
+					<nc:VehicleColorPrimaryCode>BLK</nc:VehicleColorPrimaryCode>
+					<nc:ItemModelName>Titan</nc:ItemModelName>
+					<nc:ItemModelYearDate>2008</nc:ItemModelYearDate>
+					<nc:ConveyanceRegistrationPlateIdentification>
+						<nc:IdentificationID>ABC123</nc:IdentificationID>
+					</nc:ConveyanceRegistrationPlateIdentification>
+					<nc:VehicleIdentification>
+						<nc:IdentificationID>1234567890ABCDEFGH</nc:IdentificationID>
+					</nc:VehicleIdentification>
+					<ext1:VehicleMakeCode>Nissan</ext1:VehicleMakeCode>
+				</ext1:Vehicle>
+				<ext1:SourceSystemNameText>VIBRS RMS</ext1:SourceSystemNameText>
+				<intel:SystemIdentifier>
+					<nc:IdentificationID>1234</nc:IdentificationID>
+					<intel:SystemName>VIBRS RMS</intel:SystemName>
+				</intel:SystemIdentifier>
+			</ext1:VehicleSearchResult>
+		</ext:Entity>
+		<ext:Entity>
+			<ext1:VehicleSearchResult s:id="VSR002"
+				xmlns:ext1="http://ojbc.org/IEPD/Extensions/VehicleSearchResults/1.0"
+				xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:intel="http://niem.gov/niem/domains/intelligence/2.1">
+				<ext1:Vehicle>
+					<nc:VehicleColorPrimaryCode>BLK</nc:VehicleColorPrimaryCode>
+					<nc:ItemModelName>Ttan</nc:ItemModelName>
+					<nc:ItemModelYearDate>2009</nc:ItemModelYearDate>
+					<nc:ConveyanceRegistrationPlateIdentification>
+						<nc:IdentificationID>ABC123</nc:IdentificationID>
+					</nc:ConveyanceRegistrationPlateIdentification>
+					<nc:VehicleIdentification>
+						<nc:IdentificationID>1234567890ABCDEFGH</nc:IdentificationID>
+					</nc:VehicleIdentification>
+					<ext1:VehicleMakeCode>Nissan</ext1:VehicleMakeCode>
+				</ext1:Vehicle>
+				<ext1:SourceSystemNameText>Valcour</ext1:SourceSystemNameText>
+				<intel:SystemIdentifier>
+					<nc:IdentificationID>1234</nc:IdentificationID>
+					<intel:SystemName>Valcour</intel:SystemName>
+				</intel:SystemIdentifier>
+			</ext1:VehicleSearchResult>
+		</ext:Entity>
+	</exc:EntityContainer>
+	<exc:MergedRecords>
+		<ext:MergedRecord>
+			<ext:OriginalRecordReference s:ref="VSR001" />
+			<ext:OriginalRecordReference s:ref="VSR002" />
+			<ext:MergeQuality>
+				<ext:StringDistanceStatistics>
+					<ext:AttributeXPath></ext:AttributeXPath>
+					<ext:StringDistanceMeanInRecord>0.0</ext:StringDistanceMeanInRecord>
+					<ext:StringDistanceAverageInRecord>0.0</ext:StringDistanceAverageInRecord>
+					<ext:StringDistanceStandardDeviationInRecord>0.0</ext:StringDistanceStandardDeviationInRecord>
+				</ext:StringDistanceStatistics>
+			</ext:MergeQuality>
+		</ext:MergedRecord>
+	</exc:MergedRecords>
+</exc:EntityMergeResultMessage>

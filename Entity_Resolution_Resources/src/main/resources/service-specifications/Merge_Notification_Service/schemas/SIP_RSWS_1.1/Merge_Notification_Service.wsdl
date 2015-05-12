@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions 
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:Q1="http://nij.gov/IEPD/Exchange/EntityMergeResultMessage/1.0" 
+	xmlns:tns="http://nij.gov/Services/WSDL/MergeNotificationService/1.0" 
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+	targetNamespace="http://nij.gov/Services/WSDL/MergeNotificationService/1.0"> 
+	<wsdl:import
+		namespace="http://ojbc.org/PolicyAssertions/WSDL/GFIPM_SecurityPolicy/1.0/"
+		location="./GFIPMSystemToSystem.wsdl" />
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://nij.gov/IEPD/Exchange/EntityMergeResultMessage/1.0" schemaLocation="../../artifacts/service_model/information_model/EntityMergeResultMessage-IEPD/xsd/EntityMergeResultMessage.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="EntityMergeResultMessage">
+        <wsdl:part name="EntityMergeResultMessage" element="Q1:EntityMergeResultMessage"/>
+    </wsdl:message>
+    <wsdl:portType name="Merge-Notification-Service">
+        <wsdl:operation name="Notify-of-Merged-Records">
+            <wsdl:input name="EntityMergeResultMessage" message="tns:EntityMergeResultMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <!-- Secure, GFIPM conformant binding -->
+     <wsdl:binding name="Merge-Notification-Secure-ServiceSOAPBinding" type="tns:Merge-Notification-Service">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsp:PolicyReference URI="#GFIPMSystemToSystem" />
+        <wsdl:operation name="Notify-of-Merged-Records">
+            <soap:operation soapAction="Notify-of-Merged-Records" style="document"/>
+            <wsdl:input name="EntityMergeResultMessage">
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Merge-Notification-ServiceService">
+        <wsdl:port name="Merge-Notification-Service" binding="tns:Merge-Notification-Secure-ServiceSOAPBinding">
+            <soap:address location="http://localhost"/>
+        </wsdl:port>
+        <wsdl:port binding="tns:Merge-Notification-Secure-ServiceSOAPBinding"
+			name="Merge-Notification-Secure-Service">
+			<soap:address location="http://localhost/secure" />
+		</wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

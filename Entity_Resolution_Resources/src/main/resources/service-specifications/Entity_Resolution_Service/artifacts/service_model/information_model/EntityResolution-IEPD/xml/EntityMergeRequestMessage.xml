@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Q3:EntityMergeRequestMessage 
+	xmlns:Q1="http://nij.gov/IEPD/Extensions/MatchAlgorithmCodes/1.0" 
+	xmlns:Q2="http://nij.gov/IEPD/Extensions/EntityResolutionExtensions/1.0" 
+	xmlns:Q3="http://nij.gov/IEPD/Exchange/EntityMergeRequestMessage/1.0" 
+	xmlns:p="http://niem.gov/niem/proxy/xsd/2.0" 
+	xmlns:s="http://niem.gov/niem/structures/2.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://nij.gov/IEPD/Exchange/EntityMergeRequestMessage/1.0 ../xsd/EntityMergeRequestMessage.xsd">
+  <Q3:MergeParameters>
+    <Q2:EntityContainer>
+      <Q2:Entity>
+      	<AnyXMLHere />
+      </Q2:Entity>
+    </Q2:EntityContainer>
+  </Q3:MergeParameters>
+</Q3:EntityMergeRequestMessage>
