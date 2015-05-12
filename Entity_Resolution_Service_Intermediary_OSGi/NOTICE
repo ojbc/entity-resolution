@@ -1,0 +1,13 @@
+NIJ Entity Resolution Service Intermediary OSGi Component
+Copyright 2013 SEARCH Group, Incorporated.
+
+The code in the following packages is licensed under the BSD license:serf.*
+URL: http://infolab.stanford.edu/serf/
+
+The code in the following packages is licensed under the University of Illinois/NCSA Open Source License: com.wcohen.*
+URL: http://secondstring.sourceforge.net/
+
+The code in the following packages is licensed under the GNU General Public License version 2.0 (GPLv2): uk.ac.shef.wit.simmetrics.*
+URL: http://sourceforge.net/projects/simmetrics/
+
+The code in all other packages is licensed under the Apache License Version 2.0
