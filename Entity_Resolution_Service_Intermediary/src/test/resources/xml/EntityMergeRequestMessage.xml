@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2013 SEARCH Group, Incorporated. 
+  
+  See the NOTICE file distributed with  this work for additional information 
+  regarding copyright ownership.  SEARCH Group Inc. licenses this file to You
+  under the Apache License, Version 2.0 (the "License"); you may not use this 
+  file except in compliance with the License.  You may obtain a copy of the 
+  License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, 
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<merge:EntityMergeRequestMessage
+	xmlns:er-ext="http://nij.gov/IEPD/Extensions/EntityResolutionExtensions/1.0"
+	xmlns:merge="http://nij.gov/IEPD/Exchange/EntityMergeRequestMessage/1.0"
+	xmlns:s="http://niem.gov/niem/structures/2.0" xmlns:ext="http://local.org/IEPD/Extensions/PersonSearchResults/1.0"
+	xmlns:intel="http://niem.gov/niem/domains/intelligence/2.1" xmlns:jxdm="http://niem.gov/niem/domains/jxdm/4.1"
+	xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://nij.gov/IEPD/Exchange/EntityMergeRequestMessage/1.0
+	../EntityResolution-SSPs/Entity_Resolution_Service/schema/information/EntityResolutionRequest-IEPD/xsd/EntityMergeRequestMessage.xsd">
+	<merge:MergeParameters>
+		<er-ext:EntityContainer>
+			<er-ext:Entity>
+				<ext:PersonSearchResult>
+					<ext:Person>
+						<nc:PersonAgeMeasure>
+							<nc:MeasurePointValue>48.0</nc:MeasurePointValue>
+						</nc:PersonAgeMeasure>
+						<nc:PersonBirthDate>
+							<nc:Date>1960-01-15</nc:Date>
+						</nc:PersonBirthDate>
+						<nc:PersonHairColorCode>BLK</nc:PersonHairColorCode>
+						<nc:PersonHeightMeasure>
+							<nc:MeasurePointValue>40.0</nc:MeasurePointValue>
+							<nc:LengthUnitCode>INH</nc:LengthUnitCode>
+						</nc:PersonHeightMeasure>
+						<nc:PersonName>
+							<nc:PersonGivenName>Minny</nc:PersonGivenName>
+							<nc:PersonSurName>Mouse</nc:PersonSurName>
+						</nc:PersonName>
+						<nc:PersonPhysicalFeature>
+							<nc:PhysicalFeatureDescriptionText>Tattoo of Donald Duck on Left
+								Shoulder</nc:PhysicalFeatureDescriptionText>
+						</nc:PersonPhysicalFeature>
+						<nc:PersonSSNIdentification>
+							<nc:IdentificationID>987654321</nc:IdentificationID>
+						</nc:PersonSSNIdentification>
+						<nc:PersonWeightMeasure>
+							<nc:MeasurePointValue>80.0</nc:MeasurePointValue>
+							<nc:WeightUnitCode>LBR</nc:WeightUnitCode>
+						</nc:PersonWeightMeasure>
+						<jxdm:PersonAugmentation>
+							<jxdm:PersonFBIIdentification>
+								<nc:IdentificationID>99887766</nc:IdentificationID>
+							</jxdm:PersonFBIIdentification>
+							<jxdm:PersonStateFingerprintIdentification>
+								<nc:IdentificationID>A987654</nc:IdentificationID>
+							</jxdm:PersonStateFingerprintIdentification>
+						</jxdm:PersonAugmentation>
+					</ext:Person>
+					<intel:SystemIdentifier>
+						<nc:IdentificationID>A987654</nc:IdentificationID>
+						<intel:SystemName>{http://local.org/Services/WSDL/Person_Search_Request_Service/Criminal_History/1.0}Submit-Person-Search---Criminal-History
+						</intel:SystemName>
+					</intel:SystemIdentifier>
+				</ext:PersonSearchResult>
+			</er-ext:Entity>
+			<er-ext:Entity>
+				<ext:PersonSearchResult>
+					<ext:Person>
+						<nc:PersonAgeMeasure>
+							<nc:MeasurePointValue>48.0</nc:MeasurePointValue>
+						</nc:PersonAgeMeasure>
+						<nc:PersonBirthDate>
+							<nc:Date>1960-01-15</nc:Date>
+						</nc:PersonBirthDate>
+						<nc:PersonHairColorCode>BLK</nc:PersonHairColorCode>
+						<nc:PersonHeightMeasure>
+							<nc:MeasurePointValue>40.0</nc:MeasurePointValue>
+							<nc:LengthUnitCode>INH</nc:LengthUnitCode>
+						</nc:PersonHeightMeasure>
+						<nc:PersonName>
+							<nc:PersonGivenName>Minny</nc:PersonGivenName>
+							<nc:PersonSurName>Mouse</nc:PersonSurName>
+						</nc:PersonName>
+						<nc:PersonPhysicalFeature>
+							<nc:PhysicalFeatureDescriptionText>Tattoo of Donald Duck on Left
+								Shoulder</nc:PhysicalFeatureDescriptionText>
+						</nc:PersonPhysicalFeature>
+						<nc:PersonSSNIdentification>
+							<nc:IdentificationID>987654321</nc:IdentificationID>
+						</nc:PersonSSNIdentification>
+						<nc:PersonWeightMeasure>
+							<nc:MeasurePointValue>80.0</nc:MeasurePointValue>
+							<nc:WeightUnitCode>LBR</nc:WeightUnitCode>
+						</nc:PersonWeightMeasure>
+						<jxdm:PersonAugmentation>
+							<jxdm:PersonFBIIdentification>
+								<nc:IdentificationID>99887766</nc:IdentificationID>
+							</jxdm:PersonFBIIdentification>
+							<jxdm:PersonStateFingerprintIdentification>
+								<nc:IdentificationID>A987654</nc:IdentificationID>
+							</jxdm:PersonStateFingerprintIdentification>
+						</jxdm:PersonAugmentation>
+					</ext:Person>
+					<intel:SystemIdentifier>
+						<nc:IdentificationID>A987654</nc:IdentificationID>
+						<intel:SystemName>{http://local.org/Services/WSDL/Person_Search_Request_Service/Criminal_History/1.0}Submit-Person-Search---Criminal-History
+						</intel:SystemName>
+					</intel:SystemIdentifier>
+				</ext:PersonSearchResult>
+			</er-ext:Entity>
+			<er-ext:Entity>
+				<ext:PersonSearchResult>
+					<ext:Person s:id="P1">
+						<nc:PersonBirthDate>
+							<nc:Date>1960-01-15</nc:Date>
+						</nc:PersonBirthDate>
+						<nc:PersonName>
+							<nc:PersonGivenName>Mickey</nc:PersonGivenName>
+							<nc:PersonSurName>Mouse</nc:PersonSurName>
+						</nc:PersonName>
+						<jxdm:PersonAugmentation>
+							<nc:DriverLicense>
+								<nc:DriverLicenseIdentification>
+									<nc:IdentificationID>H12345678</nc:IdentificationID>
+									<nc:IdentificationSourceText>HI</nc:IdentificationSourceText>
+								</nc:DriverLicenseIdentification>
+							</nc:DriverLicense>
+							<jxdm:PersonFBIIdentification>
+								<nc:IdentificationID>12345678X9</nc:IdentificationID>
+							</jxdm:PersonFBIIdentification>
+							<jxdm:PersonStateFingerprintIdentification>
+								<nc:IdentificationID>A1234567</nc:IdentificationID>
+							</jxdm:PersonStateFingerprintIdentification>
+						</jxdm:PersonAugmentation>
+					</ext:Person>
+					<nc:Location s:id="L1">
+						<nc:LocationAddress>
+							<nc:StructuredAddress>
+								<nc:LocationStreet>
+									<nc:StreetNumberText>1111</nc:StreetNumberText>
+									<nc:StreetName>Alakea</nc:StreetName>
+								</nc:LocationStreet>
+								<nc:LocationStateNCICRESCode>PA</nc:LocationStateNCICRESCode>
+								<nc:LocationPostalCode>96813</nc:LocationPostalCode>
+							</nc:StructuredAddress>
+						</nc:LocationAddress>
+					</nc:Location>
+					<nc:ResidenceAssociation>
+						<nc:PersonReference s:ref="P1" />
+						<nc:LocationReference s:ref="L1" />
+					</nc:ResidenceAssociation>
+					<intel:SystemIdentifier>
+						<nc:IdentificationID>@1011031String</nc:IdentificationID>
+						<intel:SystemName>http://local.org/Services/WSDL/Person_Search_Request_Service/Warrants/1.0}Submit-Person-Search---Warrants
+						</intel:SystemName>
+					</intel:SystemIdentifier>
+				</ext:PersonSearchResult>
+			</er-ext:Entity>
+			<er-ext:Entity>
+				<ext:PersonSearchResult>
+					<ext:Person s:id="P2">
+						<nc:PersonBirthDate>
+							<nc:Date>1960-01-16</nc:Date>
+						</nc:PersonBirthDate>
+						<nc:PersonName>
+							<nc:PersonGivenName>Micky</nc:PersonGivenName>
+							<nc:PersonSurName>Mouse</nc:PersonSurName>
+						</nc:PersonName>
+						<jxdm:PersonAugmentation>
+							<nc:DriverLicense>
+								<nc:DriverLicenseIdentification>
+									<nc:IdentificationID>H12345679</nc:IdentificationID>
+									<nc:IdentificationSourceText>HI</nc:IdentificationSourceText>
+								</nc:DriverLicenseIdentification>
+							</nc:DriverLicense>
+							<jxdm:PersonFBIIdentification>
+								<nc:IdentificationID>22345678X9</nc:IdentificationID>
+							</jxdm:PersonFBIIdentification>
+							<jxdm:PersonStateFingerprintIdentification>
+								<nc:IdentificationID>A2234567</nc:IdentificationID>
+							</jxdm:PersonStateFingerprintIdentification>
+						</jxdm:PersonAugmentation>
+					</ext:Person>
+					<nc:Location s:id="L2">
+						<nc:LocationAddress>
+							<nc:StructuredAddress>
+								<nc:LocationStreet>
+									<nc:StreetNumberText>2222</nc:StreetNumberText>
+									<nc:StreetName>Alakea</nc:StreetName>
+								</nc:LocationStreet>
+								<nc:LocationStateNCICRESCode>PA</nc:LocationStateNCICRESCode>
+								<nc:LocationPostalCode>96815</nc:LocationPostalCode>
+							</nc:StructuredAddress>
+						</nc:LocationAddress>
+					</nc:Location>
+					<nc:ResidenceAssociation>
+						<nc:PersonReference s:ref="P2" />
+						<nc:LocationReference s:ref="L2" />
+					</nc:ResidenceAssociation>
+					<intel:SystemIdentifier>
+						<nc:IdentificationID>@1011032String</nc:IdentificationID>
+						<intel:SystemName>http://local.org/Services/WSDL/Person_Search_Request_Service/Warrants/1.0}Submit-Person-Search---Warrants
+						</intel:SystemName>
+					</intel:SystemIdentifier>
+				</ext:PersonSearchResult>
+			</er-ext:Entity>
+			<er-ext:Entity>
+				<ext:PersonSearchResult>
+					<ext:Person>
+						<nc:PersonAgeMeasure>
+							<nc:MeasurePointValue>48.0</nc:MeasurePointValue>
+						</nc:PersonAgeMeasure>
+						<nc:PersonBirthDate>
+							<nc:Date>1960-01-15</nc:Date>
+						</nc:PersonBirthDate>
+						<nc:PersonHairColorCode>BLK</nc:PersonHairColorCode>
+						<nc:PersonHeightMeasure>
+							<nc:MeasurePointValue>40.0</nc:MeasurePointValue>
+							<nc:LengthUnitCode>INH</nc:LengthUnitCode>
+						</nc:PersonHeightMeasure>
+						<nc:PersonName>
+							<nc:PersonGivenName>Minnie</nc:PersonGivenName>
+							<nc:PersonMiddleName>R</nc:PersonMiddleName>
+							<nc:PersonSurName>Mouse</nc:PersonSurName>
+						</nc:PersonName>
+						<nc:PersonPhysicalFeature>
+							<nc:PhysicalFeatureDescriptionText>Tattoo of Donald Duck on Left
+								Shoulder</nc:PhysicalFeatureDescriptionText>
+						</nc:PersonPhysicalFeature>
+						<nc:PersonSSNIdentification>
+							<nc:IdentificationID>987654321</nc:IdentificationID>
+						</nc:PersonSSNIdentification>
+						<nc:PersonWeightMeasure>
+							<nc:MeasurePointValue>80.0</nc:MeasurePointValue>
+							<nc:WeightUnitCode>LBR</nc:WeightUnitCode>
+						</nc:PersonWeightMeasure>
+						<jxdm:PersonAugmentation>
+							<jxdm:PersonFBIIdentification>
+								<nc:IdentificationID>99887766</nc:IdentificationID>
+							</jxdm:PersonFBIIdentification>
+							<jxdm:PersonStateFingerprintIdentification>
+								<nc:IdentificationID>A987654</nc:IdentificationID>
+							</jxdm:PersonStateFingerprintIdentification>
+						</jxdm:PersonAugmentation>
+					</ext:Person>
+					<intel:SystemIdentifier>
+						<nc:IdentificationID>A987654</nc:IdentificationID>
+						<intel:SystemName>{http://local.org/Services/WSDL/Person_Search_Request_Service/Criminal_History/1.0}Submit-Person-Search---Criminal-History
+						</intel:SystemName>
+					</intel:SystemIdentifier>
+				</ext:PersonSearchResult>
+			</er-ext:Entity>
+			<er-ext:Entity>
+				<ext:PersonSearchResult>
+					<ext:Person>
+						<nc:PersonAgeMeasure>
+							<nc:MeasurePointValue>48.0</nc:MeasurePointValue>
+						</nc:PersonAgeMeasure>
+						<nc:PersonBirthDate>
+							<nc:Date>1960-01-15</nc:Date>
+						</nc:PersonBirthDate>
+						<nc:PersonHairColorCode>BLK</nc:PersonHairColorCode>
+						<nc:PersonHeightMeasure>
+							<nc:MeasurePointValue>40.0</nc:MeasurePointValue>
+							<nc:LengthUnitCode>INH</nc:LengthUnitCode>
+						</nc:PersonHeightMeasure>
+						<nc:PersonName>
+							<nc:PersonGivenName>Donald</nc:PersonGivenName>
+							<nc:PersonSurName>Duck</nc:PersonSurName>
+						</nc:PersonName>
+						<nc:PersonSSNIdentification>
+							<nc:IdentificationID>888888888</nc:IdentificationID>
+						</nc:PersonSSNIdentification>
+						<nc:PersonWeightMeasure>
+							<nc:MeasurePointValue>80.0</nc:MeasurePointValue>
+							<nc:WeightUnitCode>LBR</nc:WeightUnitCode>
+						</nc:PersonWeightMeasure>
+						<jxdm:PersonAugmentation>
+							<jxdm:PersonFBIIdentification>
+								<nc:IdentificationID>22334455</nc:IdentificationID>
+							</jxdm:PersonFBIIdentification>
+							<jxdm:PersonStateFingerprintIdentification>
+								<nc:IdentificationID>A1111122</nc:IdentificationID>
+							</jxdm:PersonStateFingerprintIdentification>
+						</jxdm:PersonAugmentation>
+					</ext:Person>
+					<intel:SystemIdentifier>
+						<nc:IdentificationID>A1111122</nc:IdentificationID>
+						<intel:SystemName>{http://local.org/Services/WSDL/Person_Search_Request_Service/Criminal_History/1.0}Submit-Person-Search---Criminal-History
+						</intel:SystemName>
+					</intel:SystemIdentifier>
+				</ext:PersonSearchResult>
+			</er-ext:Entity>
+		</er-ext:EntityContainer>
+	</merge:MergeParameters>
+</merge:EntityMergeRequestMessage>

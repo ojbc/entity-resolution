@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2013 SEARCH Group, Incorporated. 
+  
+  See the NOTICE file distributed with  this work for additional information 
+  regarding copyright ownership.  SEARCH Group Inc. licenses this file to You
+  under the Apache License, Version 2.0 (the "License"); you may not use this 
+  file except in compliance with the License.  You may obtain a copy of the 
+  License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, 
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<merge:EntityMergeRequestMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://nij.gov/IEPD/Exchange/EntityMergeRequestMessage/1.0 EntityMergeRequestMessage.xsd"
+ xmlns:s="http://niem.gov/niem/structures/2.0"
+ xmlns:nc="http://niem.gov/niem/niem-core/2.0"
+ xmlns:jxdm="http://niem.gov/niem/domains/jxdm/4.1"
+ xmlns:merge="http://nij.gov/IEPD/Exchange/EntityMergeRequestMessage/1.0"
+ xmlns:er-ext="http://nij.gov/IEPD/Extensions/EntityResolutionExtensions/1.0"
+ xmlns:intel="http://niem.gov/niem/domains/intelligence/2.1"
+ xmlns:ext="http://local.org/IEPD/Extensions/PersonSearchResults/1.0">
+    <merge:MergeParameters>
+        
+		<er-ext:AttributeParameters xmlns:er-ext="http://nij.gov/IEPD/Extensions/EntityResolutionExtensions/1.0"
+			xmlns:ext="http://local.org/IEPD/Extensions/PersonSearchResults/1.0"
+			xmlns:jxdm="http://niem.gov/niem/domains/jxdm/4.1"
+			xmlns:nc="http://niem.gov/niem/niem-core/2.0">
+			<er-ext:AttributeParameter>
+				<er-ext:AttributeXPath>ext:PersonSearchResult/ext:Person/nc:PersonName/nc:PersonGivenName</er-ext:AttributeXPath>
+				<er-ext:AttributeThresholdValue>0.8</er-ext:AttributeThresholdValue>
+				<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+				<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+			</er-ext:AttributeParameter>
+			<er-ext:AttributeParameter>
+				<er-ext:AttributeXPath>ext:PersonSearchResult/ext:Person/nc:PersonName/nc:PersonSurName</er-ext:AttributeXPath>
+				<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+				<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+				<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+				<er-ext:AttributeSortSpecification>
+					<er-ext:AttributeSortOrderRank>1</er-ext:AttributeSortOrderRank>
+					<er-ext:AttributeSortOrder>ascending</er-ext:AttributeSortOrder>
+				</er-ext:AttributeSortSpecification>
+			</er-ext:AttributeParameter>
+			<er-ext:AttributeParameter>
+				<er-ext:AttributeXPath>ext:PersonSearchResult/ext:Person/jxdm:PersonAugmentation/jxdm:PersonStateFingerprintIdentification/nc:IdentificationID</er-ext:AttributeXPath>
+				<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+				<er-ext:AttributeIsDeterminativeIndicator>true</er-ext:AttributeIsDeterminativeIndicator>
+				<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+			</er-ext:AttributeParameter>
+		</er-ext:AttributeParameters>
+        
+        <er-ext:EntityContainer>
+            <er-ext:Entity>
+                <ext:PersonSearchResult>
+                    <ext:Person>
+                        <nc:PersonName>
+                            <nc:PersonGivenName>Minny</nc:PersonGivenName>
+                            <nc:PersonSurName>Mouse</nc:PersonSurName>
+                        </nc:PersonName>
+                        <jxdm:PersonAugmentation>
+                            <jxdm:PersonStateFingerprintIdentification>
+                                <nc:IdentificationID>A987654</nc:IdentificationID>
+                            </jxdm:PersonStateFingerprintIdentification>
+                        </jxdm:PersonAugmentation>
+                    </ext:Person>
+                    <intel:SystemIdentifier>
+                        <nc:IdentificationID>A987654</nc:IdentificationID>
+                        <intel:SystemName>{http://local.org/Services/WSDL/Person_Search_Request_Service/Criminal_History/1.0}Submit-Person-Search---Criminal-History
+                        </intel:SystemName>
+                    </intel:SystemIdentifier>
+                </ext:PersonSearchResult>
+            </er-ext:Entity>
+            <er-ext:Entity>
+                <ext:PersonSearchResult>
+                    <ext:Person>
+                        <nc:PersonName>
+                            <nc:PersonGivenName>Mickey</nc:PersonGivenName>
+                            <nc:PersonSurName>Mouse</nc:PersonSurName>
+                        </nc:PersonName>
+                        <jxdm:PersonAugmentation>
+                            <jxdm:PersonStateFingerprintIdentification>
+                                <nc:IdentificationID>A987653</nc:IdentificationID>
+                            </jxdm:PersonStateFingerprintIdentification>
+                        </jxdm:PersonAugmentation>
+                    </ext:Person>
+                    <intel:SystemIdentifier>
+                        <nc:IdentificationID>A987653</nc:IdentificationID>
+                        <intel:SystemName>{http://local.org/Services/WSDL/Person_Search_Request_Service/Criminal_History/1.0}Submit-Person-Search---Criminal-History
+                        </intel:SystemName>
+                    </intel:SystemIdentifier>
+                </ext:PersonSearchResult>
+            </er-ext:Entity>
+            <er-ext:Entity>
+                <ext:PersonSearchResult>
+                    <ext:Person>
+                        <nc:PersonName>
+                            <nc:PersonSurName>Mouse</nc:PersonSurName>
+                        </nc:PersonName>
+                        <jxdm:PersonAugmentation>
+                            <jxdm:PersonStateFingerprintIdentification>
+                                <nc:IdentificationID>A987653</nc:IdentificationID>
+                            </jxdm:PersonStateFingerprintIdentification>
+                        </jxdm:PersonAugmentation>
+                    </ext:Person>
+                    <intel:SystemIdentifier>
+                        <nc:IdentificationID>A987653</nc:IdentificationID>
+                        <intel:SystemName>{http://local.org/Services/WSDL/Person_Search_Request_Service/Criminal_History/1.0}Submit-Person-Search---Criminal-History
+                        </intel:SystemName>
+                    </intel:SystemIdentifier>
+                </ext:PersonSearchResult>
+            </er-ext:Entity>
+            <er-ext:Entity>
+                <ext:PersonSearchResult>
+                    <ext:Person>
+                        <nc:PersonName>
+                            <nc:PersonGivenName>Micky</nc:PersonGivenName>
+                            <nc:PersonSurName>Mouse</nc:PersonSurName>
+                        </nc:PersonName>
+                        <jxdm:PersonAugmentation>
+                            <jxdm:PersonStateFingerprintIdentification>
+                                <nc:IdentificationID>A987653</nc:IdentificationID>
+                            </jxdm:PersonStateFingerprintIdentification>
+                        </jxdm:PersonAugmentation>
+                    </ext:Person>
+                    <intel:SystemIdentifier>
+                        <nc:IdentificationID>A987653</nc:IdentificationID>
+                        <intel:SystemName>{http://local.org/Services/WSDL/Person_Search_Request_Service/Criminal_History/1.0}Submit-Person-Search---Criminal-History
+                        </intel:SystemName>
+                    </intel:SystemIdentifier>
+                </ext:PersonSearchResult>
+            </er-ext:Entity>
+            <er-ext:Entity>
+                <ext:PersonSearchResult>
+                    <ext:Person>
+                        <nc:PersonName>
+                            <nc:PersonGivenName>Donald</nc:PersonGivenName>
+                            <nc:PersonSurName>Duck</nc:PersonSurName>
+                        </nc:PersonName>
+                        <jxdm:PersonAugmentation>
+                            <jxdm:PersonStateFingerprintIdentification>
+                                <nc:IdentificationID>A987652</nc:IdentificationID>
+                            </jxdm:PersonStateFingerprintIdentification>
+                        </jxdm:PersonAugmentation>
+                    </ext:Person>
+                    <intel:SystemIdentifier>
+                        <nc:IdentificationID>A987652</nc:IdentificationID>
+                        <intel:SystemName>{http://local.org/Services/WSDL/Person_Search_Request_Service/Criminal_History/1.0}Submit-Person-Search---Criminal-History
+                        </intel:SystemName>
+                    </intel:SystemIdentifier>
+                </ext:PersonSearchResult>
+            </er-ext:Entity>
+        </er-ext:EntityContainer>
+    </merge:MergeParameters>
+</merge:EntityMergeRequestMessage>

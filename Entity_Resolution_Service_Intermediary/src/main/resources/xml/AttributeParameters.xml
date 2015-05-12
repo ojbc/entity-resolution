@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2013 SEARCH Group, Incorporated. 
+  
+  See the NOTICE file distributed with  this work for additional information 
+  regarding copyright ownership.  SEARCH Group Inc. licenses this file to You
+  under the Apache License, Version 2.0 (the "License"); you may not use this 
+  file except in compliance with the License.  You may obtain a copy of the 
+  License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, 
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<er-ext:AttributeParameters xmlns:er-ext="http://nij.gov/IEPD/Extensions/EntityResolutionExtensions/1.0"
+	xmlns:ext="http://local.org/IEPD/Extensions/PersonSearchResults/1.0"
+	xmlns:jxdm="http://niem.gov/niem/domains/jxdm/4.1"
+	xmlns:nc="http://niem.gov/niem/niem-core/2.0">
+	<!-- Person's first name -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/nc:PersonName/nc:PersonGivenName</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.8</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Person's Last Name -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/nc:PersonName/nc:PersonSurName</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+		<er-ext:AttributeSortSpecification>
+			<er-ext:AttributeSortOrderRank>1</er-ext:AttributeSortOrderRank>
+			<er-ext:AttributeSortOrder>ascending</er-ext:AttributeSortOrder>
+		</er-ext:AttributeSortSpecification>
+	</er-ext:AttributeParameter>
+	<!-- Person's DOB -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/nc:PersonBirthDate/nc:Date</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Person's SSN -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/nc:PersonSSNIdentification/nc:IdentificationID</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Person's Hair Color -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/nc:PersonHairColorText</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Person's Eye Color -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/nc:EyeColorText</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Person's Driver License ID -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/jxdm:PersonAugmentation/nc:DriverLicense/nc:DriverLicenseIdentification/nc:IdentificationID</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Driver's license issuing jurisdiction -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/jxdm:PersonAugmentation/nc:DriverLicense/nc:DriverLicenseIdentification/nc:IdentificationJurisdictionText</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Person's residence zip code -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/nc:Location[../nc:ResidenceAssociation/nc:LocationReference/@s:ref = @s:id and ../nc:ResidenceAssociation/nc:PersonReference/@s:ref=../jxdm:Person/@s:id]/nc:LocationAddress/nc:StructuredAddress/nc:LocationPostalCode</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Person's residence street name -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/nc:Location[../nc:ResidenceAssociation/nc:LocationReference/@s:ref = @s:id and ../nc:ResidenceAssociation/nc:PersonReference/@s:ref=../jxdm:Person/@s:id]/nc:LocationAddress/nc:StructuredAddress/nc:LocationStreet/nc:StreetName</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+		<!-- Person's residence street number -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/nc:Location[../nc:ResidenceAssociation/nc:LocationReference/@s:ref = @s:id and ../nc:ResidenceAssociation/nc:PersonReference/@s:ref=../jxdm:Person/@s:id]/nc:LocationAddress/nc:StructuredAddress/nc:LocationStreet/nc:StreetNumberText</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>false</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Persons' FBI ID -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/jxdm:PersonAugmentation/jxdm:PersonFBIIdentification/nc:IdentificationID</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>true</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+	<!-- Person's SID -->
+	<er-ext:AttributeParameter>
+		<er-ext:AttributeXPath>ext:PersonSearchResult/jxdm:Person/jxdm:PersonAugmentation/jxdm:PersonStateFingerprintIdentification/nc:IdentificationID</er-ext:AttributeXPath>
+		<er-ext:AttributeThresholdValue>0.5</er-ext:AttributeThresholdValue>
+		<er-ext:AttributeIsDeterminativeIndicator>true</er-ext:AttributeIsDeterminativeIndicator>
+		<er-ext:AttributeMatchAlgorithmSimmetricsURICode>urn:org:search:ers:algorithms:ss.wcohen.com.Jaro</er-ext:AttributeMatchAlgorithmSimmetricsURICode>
+	</er-ext:AttributeParameter>
+
+</er-ext:AttributeParameters>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2013 SEARCH Group, Incorporated. 
+  
+  See the NOTICE file distributed with  this work for additional information 
+  regarding copyright ownership.  SEARCH Group Inc. licenses this file to You
+  under the Apache License, Version 2.0 (the "License"); you may not use this 
+  file except in compliance with the License.  You may obtain a copy of the 
+  License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, 
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:ctx="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+       ">
+
+	<import resource="properties-context.xml"/>
+
+	<!-- Common imports amongst all deployments -->
+	<import resource="cxf-endpoints.xml" />
+
+	<camel:camelContext xmlns="http://camel.apache.org/schema/spring">
+	
+		<endpoint id="EntityResolutionRequestEndpoint" uri="cxf:bean:EntityResolutionRequest?dataFormat=PAYLOAD&amp;synchronous=true&amp;loggingFeatureEnabled=${entityResolution.entityResolutionIntermediaryCxflogging}"/>
+		<endpoint id="EntityResolutionResponseEndpoint" uri="cxf:bean:EntityResolutionResponse?dataFormat=PAYLOAD&amp;synchronous=true&amp;loggingFeatureEnabled=${entityResolution.entityResolutionIntermediaryCxflogging}"/>
+	
+		<camel:route>
+			<from uri="EntityResolutionRequestEndpoint" />
+			
+			<camel:log message="Entering ER service: ${date:now:HH:mm:ss:SSS}"/>
+			
+			<to uri="bean:mergeNotificationMessageProcessor?method=processRequestPayload" />
+			
+			<camel:log message="About to call ER Message Handler (OSGi): ${date:now:HH:mm:ss:SSS}"/>
+
+			<camel:log message="This is the entity resolution request: ${body}" loggingLevel="DEBUG"/>
+										
+			<to uri="bean:entityResolutionMessageHandler?method=process" />
+			
+			<camel:log message="Called ER Message Handler (OSGi): ${date:now:HH:mm:ss:SSS}"/>
+						
+			<to uri="bean:mergeNotificationMessageProcessor?method=prepareNewExchangeResponseMessage"/>
+			
+			<camel:setHeader headerName="operationName"><constant>Notify-of-Merged-Records</constant></camel:setHeader>	
+			<camel:setHeader headerName="operationNamespace"><constant>http://nij.gov/Services/WSDL/MergeNotificationService/1.0</constant></camel:setHeader>
+			
+			<camel:log message="This is the merged message: ${body}" loggingLevel="DEBUG"/>
+			
+			<camel:log message="Calling reponse service: ${date:now:HH:mm:ss:SSS}"/>
+			
+			<to uri="EntityResolutionResponseEndpoint"/>
+		</camel:route>
+
+	</camel:camelContext>
+
+	<bean id="mergeNotificationMessageProcessor" class="gov.nij.processor.MessageProcessor"/>
+
+	<bean id="entityResolutionMessageHandler"
+		class="gov.nij.bundles.intermediaries.ers.EntityResolutionMessageHandler"/>
+
+<!-- This is a generic Entity Resolution Message Handler.  It can be used for instances where the incoming message does not contain the ER configuration. -->
+<!-- 	<bean id="entityResolutionMessageHandler" -->
+<!-- 		class="gov.nij.bundles.intermediaries.ers.EntityResolutionMessageHandler"> -->
+<!-- 		<property name="attributeParametersURL" value="classpath:/xml/AttributeParameters.xml" /> -->
+<!-- 	</bean> -->
+	 	 
+</beans>
