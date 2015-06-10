@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- sample comment -->
 <Q3:EntityMatchRequestMessage 
 	xmlns:Q1="http://nij.gov/IEPD/Extensions/MatchAlgorithmCodes/1.0" 
 	xmlns:Q2="http://nij.gov/IEPD/Extensions/EntityResolutionExtensions/1.0" 
