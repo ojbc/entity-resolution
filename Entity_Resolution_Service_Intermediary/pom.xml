@@ -188,7 +188,7 @@
 							service-specifications.*,
 							*
 						</Import-Package>
-						<Require-Bundle>org.apache.cxf.bundle,
+						<Require-Bundle>
 							gov.nij.bundles.shared.Entity_Resolution_Resources</Require-Bundle>
 						<Bundle-Activator>org.apache.camel.impl.osgi.Activator</Bundle-Activator>
 					</instructions>
