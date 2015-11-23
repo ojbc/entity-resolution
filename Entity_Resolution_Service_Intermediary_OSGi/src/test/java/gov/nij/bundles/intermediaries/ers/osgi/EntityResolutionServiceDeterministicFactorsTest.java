@@ -20,12 +20,6 @@ package gov.nij.bundles.intermediaries.ers.osgi;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import gov.nij.bundles.intermediaries.ers.osgi.AttributeParameters;
-import gov.nij.bundles.intermediaries.ers.osgi.EntityResolutionConversionUtils;
-import gov.nij.bundles.intermediaries.ers.osgi.EntityResolutionResults;
-import gov.nij.bundles.intermediaries.ers.osgi.EntityResolutionService;
-import gov.nij.bundles.intermediaries.ers.osgi.ExternallyIdentifiableRecord;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -37,7 +31,6 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import serf.data.Attribute;
@@ -403,8 +396,8 @@ public class EntityResolutionServiceDeterministicFactorsTest {
         
         for (ExternallyIdentifiableRecord r : returnRecords) {
             if (!isEmpty(r.getAttribute("A1"))) {
-                assertEquals("record1", r.getExternalId());
-                assertTrue(r.getRelatedIds().contains("record2"));
+                assertEquals("record2", r.getExternalId());
+                assertTrue(r.getRelatedIds().contains("record1"));
             }
             else {
                 assertEquals("record3", r.getExternalId());

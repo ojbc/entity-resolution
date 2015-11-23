@@ -577,7 +577,7 @@ public class ServiceTest
         assertEquals(2, returnRecords.size());
         
         r1 = returnRecords.get(0);
-        assertEquals("Andruw", r1.getAttribute("givenName").iterator().next()); // not sorted
+        assertEquals("Andrew", r1.getAttribute("givenName").iterator().next()); // not sorted
         
         attributeParametersSet = new HashSet<AttributeParameters>();
         ap = new AttributeParameters("givenName");
