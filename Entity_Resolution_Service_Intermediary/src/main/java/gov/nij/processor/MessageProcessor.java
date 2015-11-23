@@ -24,14 +24,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.camel.Exchange;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.cxf.binding.soap.SoapHeader;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.headers.Header;
 import org.apache.cxf.message.Message;
-import org.apache.cxf.ws.addressing.AddressingBuilder;
 import org.apache.cxf.ws.addressing.AddressingProperties;
 import org.apache.cxf.ws.addressing.AttributedURIType;
 import org.apache.cxf.ws.addressing.EndpointReferenceType;
@@ -227,8 +226,7 @@ public class MessageProcessor {
 		if (!wsAddressingMessageProperties.isEmpty())
 		{	
 			// get Message Addressing Properties instance
-	        AddressingBuilder builder = AddressingBuilder.getAddressingBuilder();
-	        AddressingProperties maps = builder.newAddressingProperties();
+	        AddressingProperties maps = new AddressingProperties();
 	
 	        String messageID = wsAddressingMessageProperties.get("MessageID");
 	        
@@ -283,8 +281,7 @@ public class MessageProcessor {
 		if (StringUtils.isNotEmpty(requestID))
 		{	
 			// get Message Addressing Properties instance
-	        AddressingBuilder builder = AddressingBuilder.getAddressingBuilder();
-	        AddressingProperties maps = builder.newAddressingProperties();
+	        AddressingProperties maps = new AddressingProperties();
 	
 	        // set MessageID property
 	        AttributedURIType messageIDAttr =

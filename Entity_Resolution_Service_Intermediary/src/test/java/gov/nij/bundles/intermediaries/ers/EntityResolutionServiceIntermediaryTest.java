@@ -44,7 +44,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.converter.jaxp.XmlConverter;
 import org.apache.camel.impl.DefaultExchange;
 import org.apache.camel.model.ModelCamelContext;
-import org.apache.camel.test.junit4.CamelSpringJUnit4ClassRunner;
+import org.apache.camel.test.spring.CamelSpringJUnit4ClassRunner;
 import org.apache.camel.test.spring.UseAdviceWith;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -317,8 +317,8 @@ public class EntityResolutionServiceIntermediaryTest {
 
         // Get the actual response
         Document actualResponse = ex.getIn().getBody(Document.class);
-        log.info("Input document: " + new XmlConverter().toString(inputDocument));
-        log.info("Body recieved by Mock: " + new XmlConverter().toString(actualResponse));
+        log.info("Input document: " + new XmlConverter().toString(inputDocument, null));
+        log.info("Body recieved by Mock: " + new XmlConverter().toString(actualResponse, ex));
 
         XPath xp = XPathFactory.newInstance().newXPath();
         xp.setNamespaceContext(testNamespaceContext);

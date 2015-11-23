@@ -16,24 +16,25 @@
 	<groupId>gov.nij.bundles.intermediaries</groupId>
 	<artifactId>Entity_Resolution_Service_Intermediary</artifactId>
 	<packaging>bundle</packaging>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 
 	<name>NIJ :: Entity_Resolution_Service :: Intermediary</name>
 	<url>http://www.nij.gov</url>
 
 	<properties>
-		<camel-version>2.10.3</camel-version>
-		<log4j-version>1.2.16</log4j-version>
-		<slf4j-version>1.6.4</slf4j-version>
-		<cxf-version>2.6.4</cxf-version>
-		<spring-version>3.0.7.RELEASE</spring-version>
+		<camel-version>2.14.4</camel-version>
+		<log4j-version>1.2.17</log4j-version>
+		<slf4j-version>1.7.10</slf4j-version>
+		<cxf-version>3.0.5</cxf-version>
+		<spring-version>3.2.14.RELEASE</spring-version>
 		<junit-version>4.8.1</junit-version>
-		<commons-lang-version>2.4</commons-lang-version>
-		<nij-er-osgi-version>1.0.3</nij-er-osgi-version>
+		<commons.lang3.version>3.3.2</commons.lang3.version>
+		<nij-er-osgi-version>2.0.0</nij-er-osgi-version>
 		<nij-er-resources-version>1.0.2</nij-er-resources-version>
 		<apache-commons-io-version>1.3.2</apache-commons-io-version>
 		<guava-version>11.0.2</guava-version>
 		<jaxen-version>1.1.4</jaxen-version>
+		<java-version>1.8</java-version>
 	</properties>
 
 	<dependencies>
@@ -98,9 +99,9 @@
 
 		<!-- Misc -->
 		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>${commons-lang-version}</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3.version}</version>
 		</dependency>
 
 		<!-- Test -->
@@ -112,7 +113,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-test-spring</artifactId>
+			<artifactId>camel-test-spring3</artifactId>
 			<version>${camel-version}</version>
 			<scope>test</scope>
 		</dependency>
@@ -155,8 +156,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
 				</configuration>
 			</plugin>
 
@@ -181,8 +182,6 @@
 							!org.junit.*,
 							!serf.data.*,
 							!org.custommonkey.*
-							META-INF.cxf,
-							META-INF.cxf.osgi,
 							org.springframework.beans.factory.config,
 							javax.xml.namespace,
 							gov.nij.bundles.intermediaries.ers.osgi,
