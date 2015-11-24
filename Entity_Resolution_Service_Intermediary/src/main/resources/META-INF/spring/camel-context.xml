@@ -40,14 +40,14 @@
 	
 		<camel:route>
 			<from uri="EntityResolutionRequestEndpoint" />
-			
+
 			<camel:log message="Entering ER service: ${date:now:HH:mm:ss:SSS}"/>
 			
 			<to uri="bean:mergeNotificationMessageProcessor?method=processRequestPayload" />
 			
 			<camel:log message="About to call ER Message Handler (OSGi): ${date:now:HH:mm:ss:SSS}"/>
 
-			<camel:log message="This is the entity resolution request: ${body}" loggingLevel="DEBUG"/>
+			<camel:log message="This is the entity resolution request: ${body}" />
 										
 			<to uri="bean:entityResolutionMessageHandler?method=process" />
 			
