@@ -1,0 +1,175 @@
+<!--
+
+    Unless explicitly acquired and licensed from Licensor under another license, the contents of
+    this file are subject to the Reciprocal Public License ("RPL") Version 1.5, or subsequent
+    versions as allowed by the RPL, and You may not copy or use this file in either source code
+    or executable form, except in compliance with the terms and conditions of the RPL
+
+    All software distributed under the RPL is provided strictly on an "AS IS" basis, WITHOUT
+    WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, AND LICENSOR HEREBY DISCLAIMS ALL SUCH
+    WARRANTIES, INCLUDING WITHOUT LIMITATION, ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+    PARTICULAR PURPOSE, QUIET ENJOYMENT, OR NON-INFRINGEMENT. See the RPL for specific language
+    governing rights and limitations under the RPL.
+
+    http://opensource.org/licenses/RPL-1.5
+
+    Copyright 2012-2015 Open Justice Broker Consortium
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.ojbc.build</groupId>
+	<artifactId>entity-resolution-main-aggregate</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>Entity Resolution Components</description>
+	<url>http://www.ojbc.org/</url>	
+	
+	<licenses>
+	  <license>
+	    <name>APACHE LICENSE-2.0</name>
+	    <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+	  </license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>OJBC Developers</name>
+			<email>info@ojbc.org</email>
+			<organization>OJBC</organization>
+			<organizationUrl>http://www.ojbc.org/</organizationUrl>
+		</developer>
+	</developers>
+	
+	<scm>
+	  <connection>https://github.com/ojbc/entity-resolution</connection>
+	  <developerConnection>https://github.com/ojbc/entity-resolution.git</developerConnection>
+	  <url>https://github.com/ojbc/entity-resolution</url>
+	</scm>	
+
+	<modules>		
+		<module>Entity_Resolution_Resources</module>
+		<module>Entity_Resolution_Service_Intermediary</module>
+		<module>Entity_Resolution_Service_Intermediary_OSGi</module>
+		<module>Entity_Resolution_Demo</module>
+	</modules>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+
+	<build>
+		<plugins>
+		
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.3</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+	<profiles>
+		
+		<profile>
+			<id>release</id>
+			
+			<build>
+				<plugins>
+								
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.9.1</version>
+						<configuration>
+							<failOnError>false</failOnError>
+							<quiet>true</quiet>
+						</configuration>
+						<executions>
+							<execution>
+								<id>attach-javadoc</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+
+						<executions>
+							<execution>
+								<id>empty-javadoc-jar</id>
+								<phase>package</phase>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>									
+									<classifier>javadoc</classifier>
+									<!-- note: javadoc dir doesn't exist but allows creating empty javadoc jars here -->
+									<classesDirectory>javadoc</classesDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+										
+				    <plugin>
+				      <groupId>org.apache.maven.plugins</groupId>
+				      <artifactId>maven-gpg-plugin</artifactId>
+				      <version>1.5</version>
+				      <executions>
+				        <execution>
+				          <id>sign-artifacts</id>
+				          <phase>verify</phase>
+				          <goals>
+				            <goal>sign</goal>
+				          </goals>
+				        </execution>
+				      </executions>
+				    </plugin>										
+					
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+
+</project>
