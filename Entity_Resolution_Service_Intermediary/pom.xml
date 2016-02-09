@@ -191,7 +191,7 @@
 							org.springframework.beans.factory.config,
 							javax.xml.namespace,
 							gov.nij.bundles.intermediaries.ers.osgi,
-							service-specifications.*,
+							ssp.*,
 							*
 						</Import-Package>
 						<Require-Bundle>

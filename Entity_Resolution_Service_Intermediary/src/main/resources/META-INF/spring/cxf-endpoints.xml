@@ -31,7 +31,7 @@
     <!-- Entity Resolution Request handler -->
 	<cxf:cxfEndpoint id="EntityResolutionRequest"
 		address="${entityResolution.entityResolutionRequestEndpoint}"
-		wsdlURL="classpath:service-specifications/Entity_Resolution_Service/schemas/SIP_WS_1.3/Entity_Resolution_Service.wsdl"
+		wsdlURL="classpath:ssp/Entity_Resolution_Service/schemas/SIP_WS_1.3/Entity_Resolution_Service.wsdl"
 		serviceName="ers:Entity-Resolution-ServiceService" endpointName="ers:Entity-Resolution-Service"
 		xmlns:ers="http://nij.gov/Services/WSDL/EntityResolutionService/1.0">
 		<cxf:features>
@@ -48,7 +48,7 @@
 	<!-- Entity Resolution Request handler -->
 	<cxf:cxfEndpoint id="EntityResolutionResponse"
 		address="${entityResolution.mergeNotificationServiceEndpoint}"
-		wsdlURL="classpath:service-specifications/Merge_Notification_Service/schemas/SIP_RSWS_1.1/Merge_Notification_Service.wsdl"
+		wsdlURL="classpath:ssp/Merge_Notification_Service/schemas/SIP_RSWS_1.1/Merge_Notification_Service.wsdl"
 		serviceName="mns:Merge-Notification-ServiceService" endpointName="mns:Merge-Notification-Service"
 		xmlns:mns="http://nij.gov/Services/WSDL/MergeNotificationService/1.0">
 		<cxf:features>

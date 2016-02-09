@@ -42,7 +42,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<_exportcontents>service-specifications.*</_exportcontents>
+						<_exportcontents>ssp.*</_exportcontents>
 					</instructions>
 				</configuration>
 			</plugin>
