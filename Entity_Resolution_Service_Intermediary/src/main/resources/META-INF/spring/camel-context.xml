@@ -47,7 +47,7 @@
 			
 			<camel:log message="About to call ER Message Handler (OSGi): ${date:now:HH:mm:ss:SSS}"/>
 
-			<camel:log message="This is the entity resolution request: ${body}" />
+			<camel:log message="This is the entity resolution request: ${body}" loggingLevel="DEBUG"/>
 										
 			<to uri="bean:entityResolutionMessageHandler?method=process" />
 			
