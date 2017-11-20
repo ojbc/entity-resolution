@@ -60,7 +60,7 @@
 			
 			<camel:log message="This is the merged message: ${body}" loggingLevel="DEBUG"/>
 			
-			<camel:log message="Calling reponse service: ${date:now:HH:mm:ss:SSS}"/>
+			<camel:log message="Calling merge reponse service: ${date:now:HH:mm:ss:SSS}"/>
 			
 			<to uri="EntityResolutionResponseEndpoint"/>
 		</camel:route>
