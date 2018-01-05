@@ -35,13 +35,26 @@
 
 	<build>
 		<defaultGoal>install</defaultGoal>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.xsd</include>
+					<include>**/*.wsdl</include>
+				</includes>
+			</resource>
+		</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
+ 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
+				<version>2.5.4</version>
 				<configuration>
-					<instructions>
+ 					<instructions>
 						<_exportcontents>ssp.*</_exportcontents>
 					</instructions>
 				</configuration>
