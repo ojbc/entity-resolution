@@ -17,7 +17,6 @@ import gov.nij.bundles.intermediaries.ers.osgi.ExternallyIdentifiableRecord;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Appender;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.WriterAppender;
@@ -26,8 +25,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import static org.mockito.Mockito.*;
 
@@ -36,7 +33,8 @@ import serf.data.Attribute;
 public class LoggingTest {
 
     private static final String JARO_DISTANCE_IMPL = "com.wcohen.ss.Jaro";
-    private static final Log LOG = LogFactory.getLog(LoggingTest.class);
+    @SuppressWarnings("unused")
+	private static final Log LOG = LogFactory.getLog(LoggingTest.class);
 
     private WriterAppender mockAppender;
 
