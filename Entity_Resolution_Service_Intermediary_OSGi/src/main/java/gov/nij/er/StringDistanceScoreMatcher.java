@@ -17,12 +17,13 @@
  */
 package gov.nij.er;
 
-import org.apache.log4j.*;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
-import serf.data.*;
+import com.wcohen.ss.api.StringDistance;
+
+import serf.data.AtomicMatch;
 import uk.ac.shef.wit.simmetrics.similaritymetrics.InterfaceStringMetric;
-
-import com.wcohen.ss.api.*;
 
 /**
  * 
@@ -36,7 +37,7 @@ public class StringDistanceScoreMatcher implements AtomicMatch
     
     public static final double DEFAULT_THRESHOLD = 0.9;
 
-    private static final Logger LOGGER = Logger.getLogger(StringDistanceScoreMatcher.class.getName());
+    private static final Log LOGGER = LogFactory.getLog(StringDistanceScoreMatcher.class.getName());
     
     private String algorithmClassName;
     private StringDistance stringDistance;

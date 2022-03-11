@@ -41,7 +41,8 @@ import serf.data.Attribute;
  */
 public class EntityResolutionServiceDeterministicFactorsTest {
 
-    private static final Log LOG = LogFactory.getLog(EntityResolutionServiceDeterministicFactorsTest.class);
+    @SuppressWarnings("unused")
+	private static final Log LOG = LogFactory.getLog(EntityResolutionServiceDeterministicFactorsTest.class);
 
     private static final String JARO_DISTANCE_IMPL = "com.wcohen.ss.Jaro";
 
