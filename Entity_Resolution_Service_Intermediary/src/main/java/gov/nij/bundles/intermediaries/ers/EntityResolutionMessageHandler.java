@@ -17,16 +17,6 @@
  */
 package gov.nij.bundles.intermediaries.ers;
 
-import gov.nij.bundles.intermediaries.ers.osgi.AttributeParameters;
-import gov.nij.bundles.intermediaries.ers.osgi.AttributeStatistics;
-import gov.nij.bundles.intermediaries.ers.osgi.AttributeWrapper;
-import gov.nij.bundles.intermediaries.ers.osgi.EntityResolutionResults;
-import gov.nij.bundles.intermediaries.ers.osgi.EntityResolutionService;
-import gov.nij.bundles.intermediaries.ers.osgi.RecordWrapper;
-import gov.nij.bundles.intermediaries.ers.osgi.SortOrderSpecification;
-import gov.nij.camel.xpath.CamelXpathAnnotations;
-import gov.nij.processor.AttributeParametersXpathSupport;
-
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -44,6 +34,7 @@ import java.util.UUID;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
@@ -61,6 +52,16 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.google.common.collect.TreeMultiset;
+
+import gov.nij.bundles.intermediaries.ers.osgi.AttributeParameters;
+import gov.nij.bundles.intermediaries.ers.osgi.AttributeStatistics;
+import gov.nij.bundles.intermediaries.ers.osgi.AttributeWrapper;
+import gov.nij.bundles.intermediaries.ers.osgi.EntityResolutionResults;
+import gov.nij.bundles.intermediaries.ers.osgi.EntityResolutionService;
+import gov.nij.bundles.intermediaries.ers.osgi.RecordWrapper;
+import gov.nij.bundles.intermediaries.ers.osgi.SortOrderSpecification;
+import gov.nij.camel.xpath.CamelXpathAnnotations;
+import gov.nij.processor.AttributeParametersXpathSupport;
 
 /**
  * This class bridges the Camel Route to the Entity Resolution OSGi bundle. It is responsible for processing attribute parameters either from a static configuration file or from the inbound message
@@ -442,7 +443,7 @@ public class EntityResolutionMessageHandler {
     void setAttributeParametersStream(InputStream attributeParametersStream) throws Exception {
         XmlConverter xmlConverter = new XmlConverter();
         xmlConverter.getDocumentBuilderFactory().setNamespaceAware(true);
-        attributeParametersDocument = xmlConverter.toDOMDocument(attributeParametersStream);
+        attributeParametersDocument = xmlConverter.toDOMDocument(attributeParametersStream,null);
     }
 
     /**

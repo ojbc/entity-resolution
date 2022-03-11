@@ -38,14 +38,14 @@ import org.apache.camel.EndpointInject;
 import org.apache.camel.Exchange;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
-import org.apache.camel.builder.AdviceWithRouteBuilder;
+import org.apache.camel.builder.AdviceWith;
 import org.apache.camel.component.cxf.common.message.CxfConstants;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.converter.jaxp.XmlConverter;
-import org.apache.camel.impl.DefaultExchange;
 import org.apache.camel.model.ModelCamelContext;
-import org.apache.camel.test.spring.CamelSpringJUnit4ClassRunner;
-import org.apache.camel.test.spring.UseAdviceWith;
+import org.apache.camel.support.DefaultExchange;
+import org.apache.camel.test.spring.junit5.CamelSpringBootTest;
+import org.apache.camel.test.spring.junit5.UseAdviceWith;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.cxf.binding.soap.SoapHeader;
@@ -53,25 +53,25 @@ import org.apache.cxf.headers.Header;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import gov.nij.EntityResolutionService;
 
 /**
  * This is the test framework to test the Entity Resolution Service.
  * 
  */
 
+@CamelSpringBootTest
+@SpringBootTest(classes=EntityResolutionService.class)
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @UseAdviceWith
-// NOTE: this causes Camel contexts to not start up automatically
-@RunWith(CamelSpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {
-    "classpath:META-INF/spring/camel-context.xml"
-})
 public class EntityResolutionServiceIntermediaryTest {
 
     private static final Log log = LogFactory.getLog(EntityResolutionServiceIntermediaryTest.class);
@@ -85,7 +85,7 @@ public class EntityResolutionServiceIntermediaryTest {
     @Produce
     protected ProducerTemplate template;
 
-    @EndpointInject(uri = "mock:EntityResolutionResponseEndpoint")
+    @EndpointInject(value = "mock:EntityResolutionResponseEndpoint")
     protected MockEndpoint entityResolutionResponseMock;
 
     private Exchange senderExchange;
@@ -120,16 +120,13 @@ public class EntityResolutionServiceIntermediaryTest {
 
         // Advise the person search results endpoint and replace it with a mock endpoint.
         // We then will test this mock endpoint to see if it gets the proper payload.
-        context.getRouteDefinitions().get(0).adviceWith(context, new AdviceWithRouteBuilder() {
-            @Override
-            public void configure() throws Exception {
-                // weave the vehicle search results in the route
-                // and replace it with the following mock route path
-                weaveByToString("To[EntityResolutionResponseEndpoint]").replace().to("mock:EntityResolutionResponseEndpoint");
-                replaceFromWith("direct:entityResolutionRequestServiceEndpoint");
-            }
-        });
-
+    	AdviceWith.adviceWith(context, "entityResolutionRoute", 
+			route ->  {
+    			route.weaveByToString("To[EntityResolutionResponseEndpoint]").replace().to(entityResolutionResponseMock).stop(); 
+    			route.replaceFromWith("direct:entityResolutionRequestServiceEndpoint");
+			}
+		);
+        	
         context.start();
 
         // We should get one message
@@ -317,8 +314,8 @@ public class EntityResolutionServiceIntermediaryTest {
 
         // Get the actual response
         Document actualResponse = ex.getIn().getBody(Document.class);
-        log.info("Input document: " + new XmlConverter().toString(inputDocument, null));
-        log.info("Body recieved by Mock: " + new XmlConverter().toString(actualResponse, ex));
+        log.info("Input document: " + new XmlConverter().toStringFromDocument(inputDocument, null));
+        log.info("Body recieved by Mock: " + new XmlConverter().toStringFromDocument(actualResponse, null));
 
         XPath xp = XPathFactory.newInstance().newXPath();
         xp.setNamespaceContext(testNamespaceContext);

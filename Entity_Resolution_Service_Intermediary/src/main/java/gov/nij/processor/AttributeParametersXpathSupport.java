@@ -17,16 +17,16 @@
  */
 package gov.nij.processor;
 
-import gov.nij.bundles.intermediaries.ers.EntityResolutionNamespaceContextHelpers;
-import gov.nij.bundles.intermediaries.ers.EntityResolutionNamespaceContextMapImpl;
-import gov.nij.bundles.intermediaries.ers.osgi.AttributeParameters;
-
 import java.util.Map;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Node;
+
+import gov.nij.bundles.intermediaries.ers.EntityResolutionNamespaceContextHelpers;
+import gov.nij.bundles.intermediaries.ers.EntityResolutionNamespaceContextMapImpl;
+import gov.nij.bundles.intermediaries.ers.osgi.AttributeParameters;
 
 /**
  * While retrieving the attribute parameters, it is necessary to have each attribute parameter have its own

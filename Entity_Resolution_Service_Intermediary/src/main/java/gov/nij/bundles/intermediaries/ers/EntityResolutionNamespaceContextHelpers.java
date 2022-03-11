@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Node;
@@ -90,7 +90,7 @@ public class EntityResolutionNamespaceContextHelpers {
 		{
 			
 			//Check to see if string is empty, regular expression will return empty strings in some cases
-			if (StringUtils.isNotEmpty(xpathValue[i]))
+			if (StringUtils.isNotBlank(xpathValue[i]))
 			{
 				String prefixAndElement = xpathValue[i];
 				

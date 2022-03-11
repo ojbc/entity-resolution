@@ -25,7 +25,7 @@
 	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
        ">
 
 	<import resource="properties-context.xml"/>
@@ -35,10 +35,10 @@
 
 	<camel:camelContext xmlns="http://camel.apache.org/schema/spring">
 	
-		<endpoint id="EntityResolutionRequestEndpoint" uri="cxf:bean:EntityResolutionRequest?dataFormat=PAYLOAD&amp;allowStreaming=false&amp;synchronous=true&amp;loggingFeatureEnabled=${entityResolution.entityResolutionIntermediaryCxflogging}"/>
-		<endpoint id="EntityResolutionResponseEndpoint" uri="cxf:bean:EntityResolutionResponse?dataFormat=PAYLOAD&amp;allowStreaming=false&amp;synchronous=true&amp;loggingFeatureEnabled=${entityResolution.entityResolutionIntermediaryCxflogging}"/>
+		<endpoint id="EntityResolutionRequestEndpoint" uri="cxf:bean:EntityResolutionRequest?dataFormat=PAYLOAD&amp;allowStreaming=false&amp;synchronous=true&amp;loggingFeatureEnabled={{entityResolution.entityResolutionIntermediaryCxflogging}}"/>
+		<endpoint id="EntityResolutionResponseEndpoint" uri="cxf:bean:EntityResolutionResponse?dataFormat=PAYLOAD&amp;allowStreaming=false&amp;synchronous=true&amp;loggingFeatureEnabled={{entityResolution.entityResolutionIntermediaryCxflogging}}"/>
 	
-		<camel:route>
+		<camel:route id="entityResolutionRoute">
 			<from uri="EntityResolutionRequestEndpoint" />
 
 			<camel:log message="Entering ER service: ${date:now:HH:mm:ss:SSS}"/>
@@ -55,8 +55,8 @@
 						
 			<to uri="bean:mergeNotificationMessageProcessor?method=prepareNewExchangeResponseMessage"/>
 			
-			<camel:setHeader headerName="operationName"><constant>Notify-of-Merged-Records</constant></camel:setHeader>	
-			<camel:setHeader headerName="operationNamespace"><constant>http://nij.gov/Services/WSDL/MergeNotificationService/1.0</constant></camel:setHeader>
+			<camel:setHeader name="operationName"><constant>Notify-of-Merged-Records</constant></camel:setHeader>	
+			<camel:setHeader name="operationNamespace"><constant>http://nij.gov/Services/WSDL/MergeNotificationService/1.0</constant></camel:setHeader>
 			
 			<camel:log message="This is the merged message: ${body}" loggingLevel="DEBUG"/>
 			

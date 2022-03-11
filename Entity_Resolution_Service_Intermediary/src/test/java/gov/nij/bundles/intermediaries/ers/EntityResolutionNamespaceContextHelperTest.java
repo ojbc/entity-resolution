@@ -25,8 +25,6 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 
-import junit.framework.TestCase;
-
 import org.apache.camel.converter.jaxp.XmlConverter;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -34,6 +32,8 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import junit.framework.TestCase;
 
 public class EntityResolutionNamespaceContextHelperTest extends TestCase {
 	
@@ -92,7 +92,7 @@ public class EntityResolutionNamespaceContextHelperTest extends TestCase {
         XmlConverter converter = new XmlConverter();
         converter.getDocumentBuilderFactory().setNamespaceAware(true);
 
-        Document attributeParametersDocument = converter.toDOMDocument(attributeParametersStream);
+        Document attributeParametersDocument = converter.toDOMDocument(attributeParametersStream, null);
         
         NodeList parameterNodes = null;
         

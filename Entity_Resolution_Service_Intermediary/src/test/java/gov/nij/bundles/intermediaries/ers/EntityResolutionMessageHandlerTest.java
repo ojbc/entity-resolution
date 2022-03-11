@@ -17,14 +17,6 @@
  */
 package gov.nij.bundles.intermediaries.ers;
 
-import gov.nij.bundles.intermediaries.ers.EntityResolutionMessageHandler;
-import gov.nij.bundles.intermediaries.ers.EntityResolutionNamespaceContext;
-import gov.nij.bundles.intermediaries.ers.osgi.AttributeParameters;
-import gov.nij.bundles.intermediaries.ers.osgi.EntityResolutionConversionUtils;
-import gov.nij.bundles.intermediaries.ers.osgi.ExternallyIdentifiableRecord;
-import gov.nij.bundles.intermediaries.ers.osgi.RecordWrapper;
-import gov.nij.processor.AttributeParametersXpathSupport;
-
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -41,20 +33,23 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 
-import junit.framework.TestCase;
-
 import org.apache.camel.converter.jaxp.XmlConverter;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import gov.nij.bundles.intermediaries.ers.osgi.AttributeParameters;
+import gov.nij.bundles.intermediaries.ers.osgi.EntityResolutionConversionUtils;
+import gov.nij.bundles.intermediaries.ers.osgi.ExternallyIdentifiableRecord;
+import gov.nij.bundles.intermediaries.ers.osgi.RecordWrapper;
+import gov.nij.processor.AttributeParametersXpathSupport;
+import junit.framework.TestCase;
 import serf.data.Attribute;
 
 public class EntityResolutionMessageHandlerTest extends TestCase {
@@ -106,7 +101,7 @@ public class EntityResolutionMessageHandlerTest extends TestCase {
         InputStream attributeParametersStream = getClass().getResourceAsStream("/xml/TestAttributeParametersWithDeterm.xml");
         entityResolutionMessageHandler.setAttributeParametersStream(attributeParametersStream);
         testRequestMessageInputStream = getClass().getResourceAsStream("/xml/EntityMergeRequestMessageForDeterm.xml");
-        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream);
+        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream, null);
 
         Node entityContainerNode = testRequestMessage.getElementsByTagNameNS(EntityResolutionNamespaceContext.ER_EXT_NAMESPACE, "EntityContainer").item(0);
         assertNotNull(entityContainerNode);
@@ -135,7 +130,7 @@ public class EntityResolutionMessageHandlerTest extends TestCase {
 
         XmlConverter converter = new XmlConverter();
         converter.getDocumentBuilderFactory().setNamespaceAware(true);
-        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream);
+        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream, null);
 
         Node entityContainerNode = testRequestMessage.getElementsByTagNameNS(EntityResolutionNamespaceContext.ER_EXT_NAMESPACE, "EntityContainer").item(0);
         assertNotNull(entityContainerNode);
@@ -237,7 +232,7 @@ public class EntityResolutionMessageHandlerTest extends TestCase {
 
         XmlConverter converter = new XmlConverter();
         converter.getDocumentBuilderFactory().setNamespaceAware(true);
-        Document testRequestMessage = converter.toDOMDocument(getClass().getResourceAsStream("/xml/EntityMergeRequestMessageMixedCase.xml"));
+        Document testRequestMessage = converter.toDOMDocument(getClass().getResourceAsStream("/xml/EntityMergeRequestMessageMixedCase.xml"), null);
 
         Node entityContainerNode = testRequestMessage.getElementsByTagNameNS(EntityResolutionNamespaceContext.ER_EXT_NAMESPACE, "EntityContainer").item(0);
         assertNotNull(entityContainerNode);
@@ -310,7 +305,7 @@ public class EntityResolutionMessageHandlerTest extends TestCase {
 
         XmlConverter converter = new XmlConverter();
         converter.getDocumentBuilderFactory().setNamespaceAware(true);
-        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream);
+        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream, null);
         // LOG.info(converter.toString(testRequestMessage));
 
         Node entityContainerNode = testRequestMessage.getElementsByTagNameNS(EntityResolutionNamespaceContext.ER_EXT_NAMESPACE, "EntityContainer").item(0);
@@ -414,7 +409,7 @@ public class EntityResolutionMessageHandlerTest extends TestCase {
     public void testCreateRecords() throws Exception {
         XmlConverter converter = new XmlConverter();
         converter.getDocumentBuilderFactory().setNamespaceAware(true);
-        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream);
+        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream, null);
         assertNotNull(testRequestMessage);
 
         Node entityContainerNode = testRequestMessage.getElementsByTagNameNS(EntityResolutionNamespaceContext.ER_EXT_NAMESPACE, "EntityContainer").item(0);
@@ -481,7 +476,7 @@ public class EntityResolutionMessageHandlerTest extends TestCase {
         xp.setNamespaceContext(new EntityResolutionNamespaceContext());
         XmlConverter converter = new XmlConverter();
         converter.getDocumentBuilderFactory().setNamespaceAware(true);
-        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream);
+        Document testRequestMessage = converter.toDOMDocument(testRequestMessageInputStream, null);
         Element entityContainerElement = (Element) xp.evaluate("/merge:EntityMergeRequestMessage/merge:MergeParameters/er-ext:EntityContainer", testRequestMessage, XPathConstants.NODE);
         assertNotNull(entityContainerElement);
         Element entityElement = (Element) xp.evaluate("er-ext:Entity[1]", entityContainerElement, XPathConstants.NODE);
