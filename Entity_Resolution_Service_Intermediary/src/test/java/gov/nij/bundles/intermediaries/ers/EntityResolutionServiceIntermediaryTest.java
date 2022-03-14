@@ -50,9 +50,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.cxf.binding.soap.SoapHeader;
 import org.apache.cxf.headers.Header;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
@@ -91,7 +91,7 @@ public class EntityResolutionServiceIntermediaryTest {
     private Exchange senderExchange;
     private NamespaceContext testNamespaceContext;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         
         final NamespaceContext baseEntityResolutionNamespaceContext = new EntityResolutionNamespaceContext();
@@ -145,7 +145,7 @@ public class EntityResolutionServiceIntermediaryTest {
         senderExchange.getIn().setHeader(CxfConstants.OPERATION_NAMESPACE, CXF_OPERATION_NAMESPACE);
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         context.stop();
     }

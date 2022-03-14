@@ -28,8 +28,6 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
        ">
 
-	<import resource="properties-context.xml"/>
-
 	<!-- Common imports amongst all deployments -->
 	<import resource="cxf-endpoints.xml" />
 
