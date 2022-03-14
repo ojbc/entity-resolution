@@ -17,18 +17,20 @@
  */
 package gov.nij.er.test;
 
-import gov.nij.bundles.intermediaries.ers.osgi.ExternallyIdentifiableRecord;
-import gov.nij.er.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
-import java.util.*;
-
-import junit.framework.*;
-
-import org.junit.*;
+import org.junit.Before;
 import org.junit.Test;
 
-import serf.data.*;
-import serf.deduplication.*;
+import gov.nij.bundles.intermediaries.ers.osgi.ExternallyIdentifiableRecord;
+import junit.framework.TestCase;
+import serf.data.Attribute;
+import serf.data.Record;
+import serf.deduplication.RSwoosh;
 
 public class BasicERTest extends TestCase
 {
