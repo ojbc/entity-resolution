@@ -19,47 +19,71 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:cxf="http://camel.apache.org/schema/cxf"
-	   xmlns:policy="http://cxf.apache.org/policy"
-	   xmlns:wsp="http://www.w3.org/2006/07/ws-policy" 
+       xmlns:wsa="http://cxf.apache.org/ws/addressing"
+       xmlns:wsp="http://www.w3.org/2006/07/ws-policy"
+       xmlns:policy="http://cxf.apache.org/policy"
+       xmlns:httpj="http://cxf.apache.org/transports/http-jetty/configuration"
+       xmlns:sec="http://cxf.apache.org/configuration/security"
+       xmlns:util="http://www.springframework.org/schema/util"        
+       xmlns:http="http://cxf.apache.org/transports/http/configuration"
        xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
        http://cxf.apache.org/policy http://cxf.apache.org/schemas/policy.xsd
        http://www.w3.org/2006/07/ws-policy http://www.w3.org/2006/07/ws-policy.xsd
-       ">    
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+       http://cxf.apache.org/ws/addressing http://cxf.apache.org/schemas/ws-addr-conf.xsd
+       http://cxf.apache.org/transports/http-jetty/configuration http://cxf.apache.org/schemas/configuration/http-jetty.xsd
+       http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd
+       http://cxf.apache.org/configuration/security http://cxf.apache.org/schemas/configuration/security.xsd
+       "> 
     
     <!-- Entity Resolution Request handler -->
-	<cxf:cxfEndpoint id="EntityResolutionRequest"
-		address="${entityResolution.entityResolutionRequestEndpoint}"
-		wsdlURL="classpath:ssp/Entity_Resolution_Service/schemas/SIP_WS_1.3/Entity_Resolution_Service.wsdl"
-		serviceName="ers:Entity-Resolution-ServiceService" endpointName="ers:Entity-Resolution-Service"
-		xmlns:ers="http://nij.gov/Services/WSDL/EntityResolutionService/1.0">
-		<cxf:features>
-			<policy:policies>
-				<wsp:Policy xmlns:wsam="http://www.w3.org/2007/02/addressing/metadata">
-					<wsam:Addressing>
-						<wsp:Policy />
-					</wsam:Addressing>
-				</wsp:Policy>
-			</policy:policies>
-		</cxf:features>
-	</cxf:cxfEndpoint>
+    <cxf:cxfEndpoint id="EntityResolutionRequest"
+        address="${entityResolution.entityResolutionRequestEndpoint}"
+        wsdlURL="classpath:ssp/Entity_Resolution_Service/schemas/SIP_WS_1.3/Entity_Resolution_Service.wsdl"
+        serviceName="ers:Entity-Resolution-ServiceService" endpointName="ers:Entity-Resolution-Service"
+        xmlns:ers="http://nij.gov/Services/WSDL/EntityResolutionService/1.0">
+        <cxf:features>
+            <policy:policies>
+                <wsp:Policy xmlns:wsam="http://www.w3.org/2007/02/addressing/metadata">
+                    <wsam:Addressing>
+                        <wsp:Policy />
+                    </wsam:Addressing>
+                </wsp:Policy>
+            </policy:policies>
+        </cxf:features>
+    </cxf:cxfEndpoint>
 
-	<!-- Entity Resolution Request handler -->
-	<cxf:cxfEndpoint id="EntityResolutionResponse"
-		address="${entityResolution.mergeNotificationServiceEndpoint}"
-		wsdlURL="classpath:ssp/Merge_Notification_Service/schemas/SIP_RSWS_1.1/Merge_Notification_Service.wsdl"
-		serviceName="mns:Merge-Notification-ServiceService" endpointName="mns:Merge-Notification-Service"
-		xmlns:mns="http://nij.gov/Services/WSDL/MergeNotificationService/1.0">
-		<cxf:features>
-			<policy:policies>
-				<wsp:Policy xmlns:wsam="http://www.w3.org/2007/02/addressing/metadata">
-					<wsam:Addressing>
-						<wsp:Policy />
-					</wsam:Addressing>
-				</wsp:Policy>
-			</policy:policies>
-		</cxf:features>
-	</cxf:cxfEndpoint>
+    <!-- Entity Resolution Request handler -->
+    <cxf:cxfEndpoint id="EntityResolutionResponse"
+        address="${entityResolution.mergeNotificationServiceEndpoint}"
+        wsdlURL="classpath:ssp/Merge_Notification_Service/schemas/SIP_RSWS_1.1/Merge_Notification_Service.wsdl"
+        serviceName="mns:Merge-Notification-ServiceService" endpointName="mns:Merge-Notification-Service"
+        xmlns:mns="http://nij.gov/Services/WSDL/MergeNotificationService/1.0">
+        <cxf:features>
+            <policy:policies>
+                <wsp:Policy xmlns:wsam="http://www.w3.org/2007/02/addressing/metadata">
+                    <wsam:Addressing>
+                        <wsp:Policy />
+                    </wsam:Addressing>
+                </wsp:Policy>
+            </policy:policies>
+        </cxf:features>
+    </cxf:cxfEndpoint>
+    
+        <!-- Used for SSL/TLS Connection. No CCA, just SSL. -->
+        <http:conduit
+            name="https://.*">
+            <http:tlsClientParameters disableCNCheck="true">
+                <sec:trustManagers>
+                    <sec:keyStore type="JKS"
+                        password="${federatedQuery.truststorePassword}"
+                        file="${federatedQuery.truststoreLocation}" />
+                </sec:trustManagers>
+                
+            </http:tlsClientParameters>
+            <http:client AutoRedirect="true" Connection="Keep-Alive" AllowChunking="false"/>
+    </http:conduit>
        
 </beans>       

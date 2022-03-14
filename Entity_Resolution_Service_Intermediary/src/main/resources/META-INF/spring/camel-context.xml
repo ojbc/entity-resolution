@@ -28,9 +28,6 @@
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
        ">
 
-	<!-- Common imports amongst all deployments -->
-	<import resource="cxf-endpoints.xml" />
-
 	<camel:camelContext xmlns="http://camel.apache.org/schema/spring">
 	
 		<endpoint id="EntityResolutionRequestEndpoint" uri="cxf:bean:EntityResolutionRequest?dataFormat=PAYLOAD&amp;allowStreaming=false&amp;synchronous=true&amp;loggingFeatureEnabled={{entityResolution.entityResolutionIntermediaryCxflogging}}"/>
