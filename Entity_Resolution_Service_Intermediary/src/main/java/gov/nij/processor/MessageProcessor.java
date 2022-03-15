@@ -124,8 +124,10 @@ public class MessageProcessor {
 		{	
 			requestContext.put(Message.ENDPOINT_ADDRESS, replyToInbound);
 		}
-			
-		exchange.getMessage().setHeader(Client.REQUEST_CONTEXT , requestContext);
+		
+		Map<String, Object> headers = new HashMap<String, Object>(); 
+		headers.put(Client.REQUEST_CONTEXT, requestContext); 
+		exchange.getMessage().setHeaders(headers);
 			
 		exchange.getMessage().setBody(exchange.getIn().getBody());
 	}
