@@ -62,15 +62,4 @@
 
 	</camel:camelContext>
 
-	<bean id="mergeNotificationMessageProcessor" class="gov.nij.processor.MessageProcessor"/>
-
-	<bean id="entityResolutionMessageHandler"
-		class="gov.nij.bundles.intermediaries.ers.EntityResolutionMessageHandler"/>
-
-<!-- This is a generic Entity Resolution Message Handler.  It can be used for instances where the incoming message does not contain the ER configuration. -->
-<!-- 	<bean id="entityResolutionMessageHandler" -->
-<!-- 		class="gov.nij.bundles.intermediaries.ers.EntityResolutionMessageHandler"> -->
-<!-- 		<property name="attributeParametersURL" value="classpath:/xml/AttributeParameters.xml" /> -->
-<!-- 	</bean> -->
-	 	 
 </beans>
