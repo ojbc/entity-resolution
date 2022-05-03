@@ -25,6 +25,7 @@ import org.springframework.context.annotation.ImportResource;
 @ComponentScan({"gov.nij"})
 @ImportResource(value = {"classpath:META-INF/spring/camel-context.xml", 
 		"classpath:META-INF/spring/cxf-endpoints.xml", 
+		"classpath:META-INF/spring/beans.xml"
 		})
 public class EntityResolutionService {
     /**
