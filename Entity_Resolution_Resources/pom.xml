@@ -25,7 +25,6 @@
 	<version>2.0.0</version>
 	<name>NIJ :: Entity_Resolution_Resources :: Shared</name>
 	<url>http://www.ojbc.org/</url>		
-	<packaging>bundle</packaging>
 	
 	<parent>
 		<groupId>org.ojbc.build</groupId>

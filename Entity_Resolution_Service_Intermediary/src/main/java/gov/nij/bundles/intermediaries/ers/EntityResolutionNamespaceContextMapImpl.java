@@ -48,7 +48,7 @@ public class EntityResolutionNamespaceContextMapImpl implements NamespaceContext
         throw new UnsupportedOperationException();
     }
 
-    public Iterator getPrefixes(String uri) {
+    public Iterator<?> getPrefixes(String uri) {
         throw new UnsupportedOperationException();
     }
 }
